@@ -1,4 +1,5 @@
 import { ContainerMainPage, MainImage, TextContainer, MainText, SubText, TextIcons, ContainerIcons} from "./styles";
+import { Header } from '../../components/Header'
 import Image from "../../assets/coffee.svg"
 import IconUm from "../../icons/IconUm.svg"
 import IconDois from "../../icons/IconDois.svg"
@@ -7,6 +8,10 @@ import IconQuatro from "../../icons/IconQuatro.svg"
 
 export function MainPage () {
     return(
+        <div>
+
+        <Header />
+
         <ContainerMainPage>
 
             <TextContainer>
@@ -23,5 +28,6 @@ export function MainPage () {
             </TextContainer>
             <MainImage><img src={Image}/></MainImage>
         </ContainerMainPage>
+        </div>
     )
 }
