@@ -11,7 +11,12 @@ export const DefaultTheme = {
     'gray-900': '#121214',
     
     'purple-100': '#EBE5F9',
+    'purple-300': '#4B2995',
+    'purple-400': '#8047F8',
 
-    'gold-100': '#C47F17'
+    'gold-100': '#F1E9C9',
+    'gold-200': '#DBAC2C',
+    'gold-400': '#C47F17',
+    
   } as const
   

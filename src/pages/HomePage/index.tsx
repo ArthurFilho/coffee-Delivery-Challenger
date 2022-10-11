@@ -1,12 +1,13 @@
 import { ContainerMainPage, MainImage, TextContainer, MainText, SubText, TextIcons, ContainerIcons} from "./styles";
 import { Header } from '../../components/Header'
-import Image from "../../assets/coffee.svg"
-import IconUm from "../../icons/IconUm.svg"
-import IconDois from "../../icons/IconDois.svg"
-import IconTrês from "../../icons/IconTrês.svg"
-import IconQuatro from "../../icons/IconQuatro.svg"
+import Image from "../../assets/HomePage/coffee.svg"
+import IconUm from "../../assets/HomePage/IconUm.svg"
+import IconDois from "../../assets/HomePage/IconDois.svg"
+import IconTrês from "../../assets/HomePage/IconTrês.svg"
+import IconQuatro from "../../Assets/HomePage/IconQuatro.svg"
+import { ProductsForSale } from "../../components/ProductsForSale";
 
-export function MainPage () {
+export function HomePage () {
     return(
         <div>
 
@@ -28,6 +29,9 @@ export function MainPage () {
             </TextContainer>
             <MainImage><img src={Image}/></MainImage>
         </ContainerMainPage>
+
+        <ProductsForSale />
+
         </div>
     )
 }

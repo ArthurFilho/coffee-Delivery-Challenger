@@ -1,7 +1,7 @@
 import { GlobalStyle } from './styles/global'
 import { DefaultTheme } from './styles/themes/default'
 import { ThemeProvider } from 'styled-components'
-import { MainPage } from './pages/MainPage'
+import { HomePage } from './pages/HomePage'
 
 export function App() {
 
@@ -9,7 +9,7 @@ export function App() {
     <div className="App">
       <ThemeProvider theme={DefaultTheme}>
       <GlobalStyle />
-      <MainPage />
+      <HomePage />
       </ThemeProvider>
     </div>
   )
