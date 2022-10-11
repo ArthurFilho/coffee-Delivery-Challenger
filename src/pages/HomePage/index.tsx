@@ -27,7 +27,9 @@ export function HomePage () {
           <ContainerIcons> <TextIcons> <img src={IconTrês}/> &nbsp;  <p> Entrega rápida e rastreada </p> </TextIcons> <TextIcons> <img src={IconQuatro}/> &nbsp; <p> O café chega fresquinho até você</p> </TextIcons> </ContainerIcons>
 
             </TextContainer>
+            
             <MainImage><img src={Image}/></MainImage>
+        
         </ContainerMainPage>
 
         <ProductsForSale />
