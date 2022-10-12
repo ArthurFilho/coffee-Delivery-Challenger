@@ -22,7 +22,19 @@ export function HomePage () {
             <SubText> Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora </SubText>
            
 
-          <ContainerIcons> <TextIcons> <img src={IconUm}/> &nbsp; <p> Compra simples e segura </p> </TextIcons> <TextIcons> <img src={IconDois}/> &nbsp; <p> Embalagem mantém o café intacto</p> </TextIcons> </ContainerIcons>
+        <ContainerIcons> 
+            <TextIcons> 
+                <img src={IconUm}/> 
+                &nbsp; 
+                <p> Compra simples e segura </p> 
+            </TextIcons> 
+            
+            <TextIcons> 
+                <img src={IconDois}/> 
+                &nbsp; 
+                <p> Embalagem mantém o café intacto</p> 
+            </TextIcons> 
+        </ContainerIcons>
 
           <ContainerIcons> <TextIcons> <img src={IconTrês}/> &nbsp;  <p> Entrega rápida e rastreada </p> </TextIcons> <TextIcons> <img src={IconQuatro}/> &nbsp; <p> O café chega fresquinho até você</p> </TextIcons> </ContainerIcons>
 
