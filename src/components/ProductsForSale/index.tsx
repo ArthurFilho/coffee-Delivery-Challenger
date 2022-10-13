@@ -7,7 +7,6 @@ import CoffeeNormal from "../../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../../assets/ProductsForSale/Americano.svg"
 import CoffeeCremoso from "../../assets/ProductsForSale/Cremoso.svg"
 import CoffeeGelado from "../../assets/ProductsForSale/CafeGelado.svg"
-import CoffeeLeite from "../../assets/ProductsForSale/Leite.svg"
 import CoffeeLatte from "../../assets/ProductsForSale/Latte.svg"
 import CoffeeCapuccino from "../../assets/ProductsForSale/Capuccino.svg"
 import CoffeeMacchiato from "../../assets/ProductsForSale/Macchiato.svg"
@@ -63,7 +62,7 @@ export function ProductsForSale(){
           description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
           price: 9.90,
           type: 'Latte',
-          image: CoffeeLeite,
+          image: CoffeeLatte,
         },
         {
           title: 'Tradicional com leite',

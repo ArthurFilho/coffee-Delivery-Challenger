@@ -11,7 +11,7 @@ export function Header() {
           <img src={Logo}/>
         </LogoContent>
         <Buttons>
-        <IconsHeader backgroundColor="purple"> <img src={Icon}/> PORTO GRANDE, RS</IconsHeader>
+        <IconsHeader backgroundColor="purple"> <img src={Icon}/> Salvador, BA</IconsHeader>
         <IconsHeader backgroundColor="gold"><img src={Cart}/></IconsHeader>
         </Buttons>
         </HeaderContent>

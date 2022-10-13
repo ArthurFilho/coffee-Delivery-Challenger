@@ -5,7 +5,7 @@ import IconUm from "../../assets/HomePage/IconUm.svg"
 import IconDois from "../../assets/HomePage/IconDois.svg"
 import IconTrês from "../../assets/HomePage/IconTrês.svg"
 import IconQuatro from "../../Assets/HomePage/IconQuatro.svg"
-import { ProductsForSale } from "../../components/ProductsForSale";
+import { ProductsForSale } from "../../components/ProductsForSale"
 
 export function HomePage () {
     return(
