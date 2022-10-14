@@ -1,7 +1,12 @@
 import { Header } from "../../components/Header";
-import { ContainerBanana, ContainerForm, ContainerPayment, ContainerSelection, Text } from "./styles";
-import Local from "../../assets/CheckoutPage/local.svg"
+import { ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, Text } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
+import Local from "../../assets/CheckoutPage/local.svg"
+
+import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
+import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
+import Banco from "../../assets/CheckoutPage/Icon3.svg"
+import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 
 export function CheckoutPage() {
     return(
@@ -19,22 +24,31 @@ export function CheckoutPage() {
             
             <p>Informe o endereço onde deseja receber seu pedido</p>
 
-            <input type="text" placeholder="CEP"/>
+            <div><InputCep type="text" placeholder="CEP"/></div>
 
-            <input type="text" placeholder="Rua" />
+            <div><InputRua type="text" placeholder="Rua" /></div>
             
-            <div> <input type="text" placeholder="Numero" /> <input type="Complemento" placeholder="CEP" /> </div>
+            <ContainerInput> <InputNumber type="text" placeholder="Numero" /> <InputComplemento type="Complemento" placeholder="CEP" /> </ContainerInput>
 
-            <div> <input type="text" placeholder="Bairro" /> <input type="text" placeholder="Cidade" /> <input type="text" placeholder="UF" /> </div>       
+            <ContainerInput> <InputBairro type="text" placeholder="Bairro" /> <InputCidade type="text" placeholder="Cidade" /> <InputUF type="text" placeholder="UF" /> </ContainerInput>       
            
             </ContainerForm>
 
-            <ContainerPayment> <div> <ContainerCounter /> </div> </ContainerPayment>
-
-            <ContainerSelection> </ContainerSelection>
+            <ContainerSelection> <div> <ContainerCounter /> </div> </ContainerSelection>
                 
             </ContainerBanana>    
-            
+
+            <ContainerPayment> 
+
+                <p>
+                    <h3> <img src={Icon1}/>Pagamento</h3>    
+                    O pagamento é feito na entrega. Escolha a forma que deseja pagar
+                </p>
+
+                <button> <img src={Cartao}/>  Cartão de crédito</button> <button> <img src={Banco}/>cartão de débito</button> <button> <img src={Dinheiro}/>dinheiro</button>
+ 
+            </ContainerPayment>
+
         </div>
     )
 }
