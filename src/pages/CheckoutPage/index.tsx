@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, Text } from "./styles";
+import { BoxPayment, BoxTextPayment, ButtonsPayment, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, Text } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
@@ -40,13 +40,19 @@ export function CheckoutPage() {
 
             <ContainerPayment> 
 
-                <p>
+                <BoxTextPayment>
                     <h3> <img src={Icon1}/>Pagamento</h3>    
-                    O pagamento é feito na entrega. Escolha a forma que deseja pagar
-                </p>
-
-                <button> <img src={Cartao}/>  Cartão de crédito</button> <button> <img src={Banco}/>cartão de débito</button> <button> <img src={Dinheiro}/>dinheiro</button>
- 
+                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                </BoxTextPayment>
+                
+                <BoxPayment>
+                
+                    <ButtonsPayment> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
+                    <ButtonsPayment> <img src={Banco}/>cartão de débito</ButtonsPayment> 
+                    <ButtonsPayment> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
+                
+                </BoxPayment>
+           
             </ContainerPayment>
 
         </div>

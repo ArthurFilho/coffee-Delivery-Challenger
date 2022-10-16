@@ -30,17 +30,25 @@ export const ContainerForm = styled.div`
 
 export const ContainerPayment = styled.div`
    background: ${props => props.theme["gray-100"]};
+   margin-left: 15px;
+   margin-top: 15px;
+   flex-direction: column;
+   display: flex;
+   height: 140px;
+   margin-right: 15px;
 `
 
 export const ContainerSelection = styled.div`
     background: ${props => props.theme["gray-100"]};
     width: 50%;
+    margin-right: 15px;
 `
 
 export const Text = styled.p`
     display: flex;
     margin-left: 10px;
     font-weight: bold;
+    margin-bottom: 30px;
 `
 
 export const InputCep = styled.input`
@@ -74,4 +82,37 @@ export const InputCidade = styled.input`
 
 export const InputUF = styled.input`
     width: 30%;
+`
+
+export const ButtonsPayment = styled.button`
+    background: ${props => props.theme["gray-500"]};
+    display: flex;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 51px;
+    gap: 7.5px;
+    padding: 15px;
+`
+
+export const BoxPayment = styled.div`
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+`
+
+export const BoxTextPayment = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    h3{
+        display: flex;
+        align-items: center;
+    }
+
+    p{
+        padding-left: 20px;
+    }
 `
