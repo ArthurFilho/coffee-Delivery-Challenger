@@ -42,6 +42,7 @@ export const ContainerSelection = styled.div`
     background: ${props => props.theme["gray-100"]};
     width: 50%;
     margin-right: 15px;
+    display: flex;
 `
 
 export const Text = styled.p`

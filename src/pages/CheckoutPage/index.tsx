@@ -7,6 +7,8 @@ import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
 import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
 import Banco from "../../assets/CheckoutPage/Icon3.svg"
 import Cartao from "../../assets/CheckoutPage/Icon4.svg"
+import Remove from "../../assets/CheckoutPage/Remove.svg"
+import CoffeeNormal from "../../assets/ProductsForSale/Coffee.svg"
 
 export function CheckoutPage() {
     return(
@@ -34,7 +36,24 @@ export function CheckoutPage() {
            
             </ContainerForm>
 
-            <ContainerSelection> <div> <ContainerCounter /> </div> </ContainerSelection>
+            <ContainerSelection> 
+            
+                <div> 
+                <ContainerCounter /> 
+                <img src={CoffeeNormal}/> 
+                <ButtonsPayment>     
+                <img src={Remove} /> Remover
+                </ButtonsPayment> 
+                <p>9, 90</p> 
+                <div>
+                <div><p>Total de itens</p> <p>R$ 29,70</p></div>
+                <div><p>Entrega</p> <p>R$ 29,70</p></div>                
+                <div><p>Total</p> <p>R$ 29,70</p></div>
+                <button>confirmar pedido</button>
+                </div>
+                </div> 
+                
+            </ContainerSelection>
                 
             </ContainerBanana>    
 
