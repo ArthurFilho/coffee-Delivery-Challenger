@@ -36,6 +36,7 @@ export const ContainerPayment = styled.div`
    display: flex;
    height: 140px;
    margin-right: 15px;
+   width: 550px;
 `
 
 export const ContainerSelection = styled.div`
@@ -43,6 +44,8 @@ export const ContainerSelection = styled.div`
     width: 50%;
     margin-right: 15px;
     display: flex;
+    border-radius: 10px 50px 10px 10px;
+
 `
 
 export const Text = styled.p`
@@ -116,4 +119,35 @@ export const BoxTextPayment = styled.div`
     p{
         padding-left: 20px;
     }
+`
+
+export const BoxSelection = styled.div`
+    flex-direction: column;
+    display: flex;
+`
+
+export const ButtonsSelection = styled.button`
+    background: ${props => props.theme["gray-400"]};
+    display: flex;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 31px;
+    gap: 7.5px;
+    padding: 4px;
+`
+
+export const PurchasedProducts = styled.div`
+    display: flex;
+`
+
+export const TextValueContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const TextValue = styled.div`
+    display: flex;
+    justify-content: space-between;
 `

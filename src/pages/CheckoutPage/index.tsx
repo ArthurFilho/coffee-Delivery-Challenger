@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BoxPayment, BoxTextPayment, ButtonsPayment, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, Text } from "./styles";
+import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
@@ -8,7 +8,7 @@ import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
 import Banco from "../../assets/CheckoutPage/Icon3.svg"
 import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
-import CoffeeNormal from "../../assets/ProductsForSale/Coffee.svg"
+import CoffeeNormal from "../../assets/CheckoutPage/CoffeeNormal.svg"
 
 export function CheckoutPage() {
     return(
@@ -38,20 +38,22 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
             
-                <div> 
-                <ContainerCounter /> 
+                <BoxSelection> 
+                <PurchasedProducts>
                 <img src={CoffeeNormal}/> 
-                <ButtonsPayment>     
+                <ContainerCounter /> 
+                <ButtonsSelection>     
                 <img src={Remove} /> Remover
-                </ButtonsPayment> 
+                </ButtonsSelection> 
                 <p>9, 90</p> 
-                <div>
-                <div><p>Total de itens</p> <p>R$ 29,70</p></div>
-                <div><p>Entrega</p> <p>R$ 29,70</p></div>                
-                <div><p>Total</p> <p>R$ 29,70</p></div>
+                </PurchasedProducts>
+                <TextValueContainer>
+                <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
+                <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
+                <TextValue><p>Total</p> <p>R$ 29,70</p></TextValue>
                 <button>confirmar pedido</button>
-                </div>
-                </div> 
+                </TextValueContainer>
+                </BoxSelection> 
                 
             </ContainerSelection>
                 

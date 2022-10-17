@@ -7,7 +7,7 @@ export function ContainerCounter () {
     return(
         <Counter> 
                                 
-            <ButtonAddRemove  onClick={count <= 0 ? '' : () => setCount((count) => count - 1)}>-</ButtonAddRemove> 
+            <ButtonAddRemove  onClick={count <= 0 ? () => {} : () => setCount((count) => count - 1)}>-</ButtonAddRemove> 
             
             <span>{count}</span> 
             

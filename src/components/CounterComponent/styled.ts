@@ -13,4 +13,6 @@ export const Counter = styled.div`
     display: flex;
     gap: 10px;
     background: ${props => props.theme["gray-400"]};
+    height: 30px;
+    padding: 5px;
 `
