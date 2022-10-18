@@ -30,6 +30,7 @@ export function ProductsForSale(){
     
     const response = [
         {
+          id: 1,
           title: 'Tradicional',
           description: 'O tradicional café feito com água quente e grãos moídos',
           price: 10,
@@ -37,6 +38,7 @@ export function ProductsForSale(){
           image: CoffeeNormal,
         },
         {
+          id: 2,
           title: 'Tradicional',
           description: 'Expresso diluído, menos intenso que o tradicional',
           price: 29.90,
@@ -44,6 +46,7 @@ export function ProductsForSale(){
           image: CoffeeAmericano,
         },
         {
+          id: 3,
           title: 'Tradicional',
           description: 'Café expresso tradicional com espuma cremosa',
           price: 9.90,
@@ -51,6 +54,7 @@ export function ProductsForSale(){
           image: CoffeeCremoso,
         },
         {
+          id: 4,
           title: 'Tradicional gelado',
           description: 'Bebida preparada com café expresso e cubos de gelo',
           price: 9.90,
@@ -58,6 +62,7 @@ export function ProductsForSale(){
           image: CoffeeGelado,
         },
         {
+          id: 5,
           title: 'Tradicional com leite',
           description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
           price: 9.90,
@@ -65,6 +70,7 @@ export function ProductsForSale(){
           image: CoffeeLatte,
         },
         {
+          id: 6,
           title: 'Tradicional com leite',
           description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
           price: 9.90,
@@ -72,6 +78,7 @@ export function ProductsForSale(){
           image: CoffeeCapuccino,
         },
         {
+          id: 7,
           title: 'Tradicional com leite',
           description: 'Café expresso misturado com um pouco de leite quente e espuma',
           price: 9.90,
@@ -79,6 +86,7 @@ export function ProductsForSale(){
           image: CoffeeMacchiato,
         },
         {
+          id: 8,
           title: 'Tradicional com leite',
           description: 'Café expresso com calda de chocolate, pouco leite e espuma',
           price: 9.90,
@@ -86,6 +94,7 @@ export function ProductsForSale(){
           image: CoffeeMocaccino,
         },
         {
+          id: 9,
           title: 'Tradicional com leite',
           description: 'Bebida feita com chocolate dissolvido no leite quente e café',
           price: 9.90,
@@ -93,6 +102,7 @@ export function ProductsForSale(){
           image: CoffeeChocolateQuente,
         },
         {
+          id: 10,
           title: 'Especial alcoólico gelado',
           description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
           price: 9.90,
@@ -100,6 +110,7 @@ export function ProductsForSale(){
           image: CoffeeCubano,
         },
         {
+          id: 11,
           title: 'Especial',
           description: 'Bebida adocicada preparada com café e leite de coco',
           price: 9.90,
@@ -107,6 +118,7 @@ export function ProductsForSale(){
           image: CoffeHavaiano,
         },
         {
+          id: 12,
           title: 'Especial',
           description: 'Bebida preparada com grãos de café árabe e especiarias',
           price: 9.90,
@@ -114,6 +126,7 @@ export function ProductsForSale(){
           image: CoffeeArabe,
         },
         {
+          id: 13,
           title: 'Especial alcoólico',
           description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
           price: 9.90,
@@ -121,6 +134,7 @@ export function ProductsForSale(){
           image: CoffeeIrlandes,
         },
         {
+          id: 14,
           title: 'Especial',
           description: 'Bebida a base de café, com grãos tritutados e alguns espessos',
           price: 9.90,
@@ -128,6 +142,7 @@ export function ProductsForSale(){
           image: CoffeeCremoso,
         },
         {
+          id: 15,
           title: 'Especial alcoólico',
           description: 'Bebida a base de café, cholate, açúcar e chantilly',
           price: 9.90,

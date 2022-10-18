@@ -45,7 +45,8 @@ export const ContainerSelection = styled.div`
     margin-right: 15px;
     display: flex;
     border-radius: 10px 50px 10px 10px;
-
+    flex-direction: column;
+    align-items: center;
 `
 
 export const Text = styled.p`
@@ -124,6 +125,8 @@ export const BoxTextPayment = styled.div`
 export const BoxSelection = styled.div`
     flex-direction: column;
     display: flex;
+    width: 100%;
+    align-items: center;
 `
 
 export const ButtonsSelection = styled.button`
@@ -136,18 +139,41 @@ export const ButtonsSelection = styled.button`
     height: 31px;
     gap: 7.5px;
     padding: 4px;
+    border: 0;
 `
 
 export const PurchasedProducts = styled.div`
     display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 400px;
+    gap: 20px;
 `
 
 export const TextValueContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 400px;
 `
 
 export const TextValue = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
+`
+
+export const ButtonsConfirm = styled.button`
+    background: ${props => props.theme["gold-200"]};
+    color: white;
+    display: flex;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 31px;
+    gap: 7.5px;
+    padding: 4px;
+    border: 0;
 `

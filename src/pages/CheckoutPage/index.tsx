@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer } from "./styles";
+import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
@@ -36,26 +36,55 @@ export function CheckoutPage() {
            
             </ContainerForm>
 
-            <ContainerSelection> 
-            
-                <BoxSelection> 
-                <PurchasedProducts>
-                <img src={CoffeeNormal}/> 
-                <ContainerCounter /> 
-                <ButtonsSelection>     
-                <img src={Remove} /> Remover
-                </ButtonsSelection> 
-                <p>9, 90</p> 
-                </PurchasedProducts>
-                <TextValueContainer>
-                <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
-                <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
-                <TextValue><p>Total</p> <p>R$ 29,70</p></TextValue>
-                <button>confirmar pedido</button>
-                </TextValueContainer>
-                </BoxSelection> 
+        <ContainerSelection> 
+        
+            <BoxSelection> 
                 
-            </ContainerSelection>
+                <PurchasedProducts>
+                
+                            <img src={CoffeeNormal}/> 
+                
+                            <ContainerCounter /> 
+                
+                        <ButtonsSelection>     
+                
+                            <img src={Remove} /> Remover
+                
+                        </ButtonsSelection> 
+                
+                            <p>9, 90</p> 
+                </PurchasedProducts>
+                
+            </BoxSelection> 
+
+            <BoxSelection> 
+                
+                <PurchasedProducts>
+                
+                            <img src={CoffeeNormal}/> 
+                
+                            <ContainerCounter /> 
+                
+                        <ButtonsSelection>     
+                
+                            <img src={Remove} /> Remover
+                
+                        </ButtonsSelection> 
+                
+                            <p>9, 90</p> 
+                </PurchasedProducts>
+            </BoxSelection> 
+
+            <TextValueContainer>
+                    <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
+                    <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
+                    <TextValue><p>Total</p> <p>R$ 29,70</p></TextValue>
+                    <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
+            </TextValueContainer>
+
+        </ContainerSelection>
+
+        
                 
             </ContainerBanana>    
 
