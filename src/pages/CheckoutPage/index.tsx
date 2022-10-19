@@ -65,6 +65,8 @@ export function CheckoutPage() {
                 
                             <ContainerCounter /> 
                 
+                            <p>Tradicional</p>
+
                         <ButtonsSelection>     
                 
                             <img src={Remove} /> Remover

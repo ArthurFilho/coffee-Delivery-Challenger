@@ -176,4 +176,5 @@ export const ButtonsConfirm = styled.button`
     gap: 7.5px;
     padding: 4px;
     border: 0;
+    margin-bottom: 30px;
 `
