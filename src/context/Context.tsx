@@ -1,18 +1,18 @@
 import { createContext, ReactNode } from "react"
 
-import CoffeeNormal from "../../assets/ProductsForSale/Coffee.svg"
-import CoffeeAmericano from "../../assets/ProductsForSale/Americano.svg"
-import CoffeeCremoso from "../../assets/ProductsForSale/Cremoso.svg"
-import CoffeeGelado from "../../assets/ProductsForSale/CafeGelado.svg"
-import CoffeeLatte from "../../assets/ProductsForSale/Latte.svg"
-import CoffeeCapuccino from "../../assets/ProductsForSale/Capuccino.svg"
-import CoffeeMacchiato from "../../assets/ProductsForSale/Macchiato.svg"
-import CoffeeMocaccino from "../../assets/ProductsForSale/Mocaccino.svg"
-import CoffeeChocolateQuente from "../../assets/ProductsForSale/ChocolateQuente.svg"
-import CoffeeCubano from "../../assets/ProductsForSale/Cubano.svg"
-import CoffeHavaiano from "../../assets/ProductsForSale/Havaiano.svg"
-import CoffeeArabe from "../../assets/ProductsForSale/Árabe.svg"
-import CoffeeIrlandes from "../../assets/ProductsForSale/Irlandês.svg"
+import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
+import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
+import CoffeeCremoso from "../assets/ProductsForSale/Cremoso.svg"
+import CoffeeGelado from "../assets/ProductsForSale/CafeGelado.svg"
+import CoffeeLatte from "../assets/ProductsForSale/Latte.svg"
+import CoffeeCapuccino from "../assets/ProductsForSale/Capuccino.svg"
+import CoffeeMacchiato from "../assets/ProductsForSale/Macchiato.svg"
+import CoffeeMocaccino from "../assets/ProductsForSale/Mocaccino.svg"
+import CoffeeChocolateQuente from "../assets/ProductsForSale/ChocolateQuente.svg"
+import CoffeeCubano from "../assets/ProductsForSale/Cubano.svg"
+import CoffeHavaiano from "../assets/ProductsForSale/Havaiano.svg"
+import CoffeeArabe from "../assets/ProductsForSale/Árabe.svg"
+import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
 interface CoffeeProps {
     id: number
@@ -20,10 +20,15 @@ interface CoffeeProps {
     type: string
     price: number
     title: string
+    image: void
   } 
 
 interface ContextType {
-  response: (response: CoffeeProps) => Promise<void>
+  response: CoffeeProps;
+}
+
+interface ContextProviderProps {
+  children: ReactNode
 }
 
 export const response = [
@@ -149,23 +154,18 @@ export const response = [
   },
   ]
 
-  interface ContextProviderProps {
-    children: ReactNode
-  }
-  
-
-export const TransactionsContext = createContext({} as ContextType)
+export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
 
     
     return (
-        <TransactionsContext.Provider
+        <ContextContents.Provider
           value={{
-            response,
+            response
           }}
         >
           {children}
-        </TransactionsContext.Provider>
+        </ContextContents.Provider>
       )
     }

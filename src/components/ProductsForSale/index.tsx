@@ -3,10 +3,20 @@ import { ContainerCounter } from "../CounterComponent";
 import { priceFormatter } from "../../utils/formatter";
 
 import Cart from "../../assets/ProductsForSale/Cart.svg"
+import { useContext } from "react";
+import { ContextContents} from "../../context/Context";
 
+interface CoffeeProps {
+    id: number
+    description: string
+    type: string
+    price: number
+    title: string
+    image: void
+  } 
 
 export function ProductsForSale(){
-    
+    const { response } = useContext(ContextContents)
     
     return(
         <div>
@@ -15,7 +25,7 @@ export function ProductsForSale(){
 
         <ContainerProducts>
             <ContainerItemsProduct> 
-                {response.map((response)=> {
+                {response.map((response:CoffeeProps)=> {
                     return(
                     <ItemsProduct> 
 
