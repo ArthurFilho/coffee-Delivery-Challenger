@@ -17,7 +17,7 @@ interface CoffeeProps {
 
 export function ProductsForSale(){
     
-    const { response , ProductInformation } = useContext(ContextContents)
+    const { response } = useContext(ContextContents)
     
     return(
         <div>

@@ -127,6 +127,7 @@ export const BoxSelection = styled.div`
     display: flex;
     width: 100%;
     align-items: center;
+    margin-top: 30px;
 `
 
 export const ButtonsSelection = styled.button`
@@ -145,7 +146,6 @@ export const ButtonsSelection = styled.button`
 export const PurchasedProducts = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 30px;
     margin-bottom: 10px;
     width: 400px;
     gap: 20px;
@@ -177,4 +177,8 @@ export const ButtonsConfirm = styled.button`
     padding: 4px;
     border: 0;
     margin-bottom: 30px;
+`
+
+export const Title = styled.p`
+    display: flex;
 `

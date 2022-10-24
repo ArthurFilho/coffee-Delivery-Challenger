@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer } from "./styles";
+import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer, Title } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
@@ -39,6 +39,8 @@ export function CheckoutPage() {
         <ContainerSelection> 
         
             <BoxSelection> 
+
+            <Title>Tradicional</Title>
                 
                 <PurchasedProducts>
                 
@@ -58,14 +60,15 @@ export function CheckoutPage() {
             </BoxSelection> 
 
             <BoxSelection> 
-                
+
+            <Title>Tradicional</Title>
+
                 <PurchasedProducts>
                 
+
                             <img src={CoffeeNormal}/> 
                 
                             <ContainerCounter /> 
-                
-                            <p>Tradicional</p>
 
                         <ButtonsSelection>     
                 

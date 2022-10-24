@@ -155,14 +155,14 @@ export const response = [
   ]
 
 
-  export function ProductInformation(){
-    const [information, setInformation ] = useState()
+  // export function ProductInformation(){
+  //   const [information, setInformation ] = useState()
 
-      [];
+      
 
-    setInformation(prevState => [...prevState, ]);
+  //   setInformation(prevState => [...prevState, ]);
     
-  }
+  // }
 
 export const ContextContents = createContext({} as ContextType)
 
@@ -174,7 +174,6 @@ export function ContextProvider({children}: ContextProviderProps) {
         <ContextContents.Provider
           value={{
             response,
-            ProductInformation,
           }}
         >
           {children}
