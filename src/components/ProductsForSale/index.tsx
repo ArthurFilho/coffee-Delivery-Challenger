@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { ContextContents} from "../../context/Context";
 
 interface CoffeeProps {
-    id: number
+    id: number | string
     description: string
     type: string
     price: number
@@ -16,7 +16,8 @@ interface CoffeeProps {
   } 
 
 export function ProductsForSale(){
-    const { response } = useContext(ContextContents)
+    
+    const { response , ProductInformation } = useContext(ContextContents)
     
     return(
         <div>
@@ -44,13 +45,15 @@ export function ProductsForSale(){
                           <BoxItems>  
                               
                               <ContainerCounter />
-  
+                            
+                            <button  id={response.id}>
                               <CartIcon> 
                               
                                   <img src={Cart} /> 
                                   
                               </CartIcon> 
-                              
+                            </button>
+
                           </BoxItems> 
                               
                       </PriceProductsContainer>

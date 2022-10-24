@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react"
+import { createContext, ReactNode, useState } from "react"
 
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
@@ -108,7 +108,7 @@ export const response = [
     id: 10,
     title: 'Especial alcoólico gelado',
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    price: 9.90,
+    price: 50.90,
     type: 'Cubano',
     image: CoffeeCubano,
   },
@@ -154,15 +154,27 @@ export const response = [
   },
   ]
 
+
+  export function ProductInformation(){
+    const [information, setInformation ] = useState()
+
+      [];
+
+    setInformation(prevState => [...prevState, ]);
+    
+  }
+
 export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
+
 
     
     return (
         <ContextContents.Provider
           value={{
-            response
+            response,
+            ProductInformation,
           }}
         >
           {children}
