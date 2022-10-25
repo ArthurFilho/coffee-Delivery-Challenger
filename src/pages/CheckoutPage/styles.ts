@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import * as RadioGroup from "@radix-ui/react-radio-group";
+
 export const BodyPage = styled.div`
     display: flex;
 `
@@ -98,8 +100,9 @@ export const InputUF = styled.input`
     width: 30%;
 `
 
-export const ButtonsPayment = styled.button`
-    background: ${props => props.theme["gray-500"]};
+export const ButtonsPayment = styled(RadioGroup.Item)`
+    background: ${props => props.theme["gray-400"]};
+    color: ${props => props.theme["gray-600"]};
     display: flex;
     border: 0;
     align-items: center;
@@ -108,9 +111,14 @@ export const ButtonsPayment = styled.button`
     height: 51px;
     gap: 7.5px;
     padding: 15px;
+
+    &[data-state='checked'] {
+        background: ${props => props.theme["gray-500"]};
+        color: ${props => props.theme["gray-900"]};
+    }
 `
 
-export const BoxPayment = styled.div`
+export const BoxPayment = styled(RadioGroup.Root)`
     display: flex;
     gap: 10px;
     padding-left: 20px;

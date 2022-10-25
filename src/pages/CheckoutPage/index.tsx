@@ -48,9 +48,9 @@ export function CheckoutPage() {
 
             <BoxPayment>
 
-                <ButtonsPayment> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
-                <ButtonsPayment> <img src={Banco}/>cartão de débito</ButtonsPayment> 
-                <ButtonsPayment> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
+                <ButtonsPayment value="card"> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
+                <ButtonsPayment value="bank"> <img src={Banco}/>cartão de débito</ButtonsPayment> 
+                <ButtonsPayment value="money"> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
 
             </BoxPayment>
 
@@ -106,7 +106,7 @@ export function CheckoutPage() {
             <TextValueContainer>
                     <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
                     <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
-                    <TextValue><p>Total</p> <p>R$ 29,70</p></TextValue>
+                    <TextValue><h3>Total</h3> <h3>R$ 29,70</h3></TextValue>
                     <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
             </TextValueContainer>
 
