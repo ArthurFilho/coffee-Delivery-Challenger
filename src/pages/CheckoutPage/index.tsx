@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer, Title } from "./styles";
+import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer, Title } from "./styles";
 import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
@@ -9,6 +9,7 @@ import Banco from "../../assets/CheckoutPage/Icon3.svg"
 import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
 import CoffeeNormal from "../../assets/CheckoutPage/CoffeeNormal.svg"
+import { priceFormatter } from "../../utils/formatter";
 
 export function CheckoutPage() {
     return(
@@ -17,6 +18,8 @@ export function CheckoutPage() {
             <Header />
 
             <Text>Complete seu cadastro</Text>
+
+        <BodyPage>
 
             <ContainerBanana>
                
@@ -36,7 +39,26 @@ export function CheckoutPage() {
            
             </ContainerForm>
 
-        <ContainerSelection> 
+            <ContainerPayment> 
+
+            <BoxTextPayment>
+                <h3> <img src={Icon1}/>Pagamento</h3>    
+                <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+            </BoxTextPayment>
+
+            <BoxPayment>
+
+                <ButtonsPayment> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
+                <ButtonsPayment> <img src={Banco}/>cartão de débito</ButtonsPayment> 
+                <ButtonsPayment> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
+
+            </BoxPayment>
+
+            </ContainerPayment>
+        
+            </ContainerBanana>    
+
+            <ContainerSelection> 
         
             <BoxSelection> 
 
@@ -54,31 +76,32 @@ export function CheckoutPage() {
                 
                         </ButtonsSelection> 
                 
-                            <p>9, 90</p> 
+                            <p>{priceFormatter.format(9.90)}</p> 
                 </PurchasedProducts>
                 
             </BoxSelection> 
-
+           
             <BoxSelection> 
 
             <Title>Tradicional</Title>
-
+                
                 <PurchasedProducts>
                 
-
                             <img src={CoffeeNormal}/> 
                 
                             <ContainerCounter /> 
-
+                
                         <ButtonsSelection>     
                 
                             <img src={Remove} /> Remover
                 
                         </ButtonsSelection> 
                 
-                            <p>9, 90</p> 
+                            <p>{priceFormatter.format(9.90)}</p> 
                 </PurchasedProducts>
+                
             </BoxSelection> 
+           
 
             <TextValueContainer>
                     <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
@@ -89,26 +112,9 @@ export function CheckoutPage() {
 
         </ContainerSelection>
 
-        
-                
-            </ContainerBanana>    
+        </BodyPage>
 
-            <ContainerPayment> 
 
-                <BoxTextPayment>
-                    <h3> <img src={Icon1}/>Pagamento</h3>    
-                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
-                </BoxTextPayment>
-                
-                <BoxPayment>
-                
-                    <ButtonsPayment> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
-                    <ButtonsPayment> <img src={Banco}/>cartão de débito</ButtonsPayment> 
-                    <ButtonsPayment> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
-                
-                </BoxPayment>
-           
-            </ContainerPayment>
 
         </div>
     )

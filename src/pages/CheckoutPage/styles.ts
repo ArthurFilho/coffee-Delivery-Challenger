@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
+export const BodyPage = styled.div`
+    display: flex;
+`
+
 export const ContainerBanana = styled.div`
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    width: 53%;
 `
 
 export const ContainerForm = styled.div`
@@ -10,7 +15,7 @@ export const ContainerForm = styled.div`
     flex-direction: column;
     gap: 10px;
     height: 300px;
-    width: 50%;
+    width: 95%;
     margin-left: 15px;
     margin-right: 15px;
     padding-left: 10px;
@@ -36,17 +41,21 @@ export const ContainerPayment = styled.div`
    display: flex;
    height: 140px;
    margin-right: 15px;
-   width: 550px;
+   width: 95%;
+   margin-bottom: 15px;
+   padding: 10px;
 `
 
 export const ContainerSelection = styled.div`
     background: ${props => props.theme["gray-100"]};
-    width: 50%;
+    width: 45%;
     margin-right: 15px;
     display: flex;
     border-radius: 10px 50px 10px 10px;
     flex-direction: column;
     align-items: center;
+    float: right;
+    height: 100%;
 `
 
 export const Text = styled.p`
