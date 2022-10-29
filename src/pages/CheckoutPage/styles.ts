@@ -112,9 +112,18 @@ export const ButtonsPayment = styled(RadioGroup.Item)`
     gap: 7.5px;
     padding: 15px;
 
+    img{
+        opacity: 0.5;
+    }
+
     &[data-state='checked'] {
         background: ${props => props.theme["gray-500"]};
         color: ${props => props.theme["gray-900"]};
+    
+        
+    img {
+        opacity: 1;
+    }
     }
 `
 
