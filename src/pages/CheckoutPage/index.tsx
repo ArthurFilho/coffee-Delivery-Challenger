@@ -1,6 +1,5 @@
 import { Header } from "../../components/Header";
 import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer, Title } from "./styles";
-import { ContainerCounter } from "../../components/CounterComponent";
 import Local from "../../assets/CheckoutPage/local.svg"
 
 import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
@@ -10,6 +9,8 @@ import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
 import CoffeeNormal from "../../assets/CheckoutPage/CoffeeNormal.svg"
 import { priceFormatter } from "../../utils/formatter";
+import { CounterContent } from "../../components/CounterComponent";
+import { CoffeesCart } from "../../context/Context";
 
 export function CheckoutPage() {
     return(
@@ -60,47 +61,31 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
         
-            <BoxSelection> 
+            {CoffeesCart.map((coffesC)=>{
+                return(
+                    <BoxSelection> 
 
-            <Title>Tradicional</Title>
+                    <Title>{coffesC.tradicional}</Title>
                 
                 <PurchasedProducts>
                 
-                            <img src={CoffeeNormal}/> 
+                            <img src={coffesC.image}/> 
                 
-                            <ContainerCounter /> 
+                            <CounterContent /> 
                 
-                        <ButtonsSelection>     
+                            <ButtonsSelection>     
                 
                             <img src={Remove} /> Remover
                 
-                        </ButtonsSelection> 
+                            </ButtonsSelection> 
                 
-                            <p>{priceFormatter.format(9.90)}</p> 
-                </PurchasedProducts>
-                
-            </BoxSelection> 
-           
-            <BoxSelection> 
+                            <p>{priceFormatter.format(coffesC.price)}</p> 
 
-            <Title>Tradicional</Title>
-                
-                <PurchasedProducts>
-                
-                            <img src={CoffeeNormal}/> 
-                
-                            <ContainerCounter /> 
-                
-                        <ButtonsSelection>     
-                
-                            <img src={Remove} /> Remover
-                
-                        </ButtonsSelection> 
-                
-                            <p>{priceFormatter.format(9.90)}</p> 
                 </PurchasedProducts>
                 
-            </BoxSelection> 
+            </BoxSelection>
+                )
+            })} 
            
 
             <TextValueContainer>

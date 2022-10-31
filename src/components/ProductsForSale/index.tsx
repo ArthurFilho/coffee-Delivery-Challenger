@@ -1,10 +1,9 @@
-import { BoxItems, CartIcon, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
-import { ContainerCounter } from "../CounterComponent";
+import { BoxItems, ButtonAdd, CartIcon, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
+import { CounterContent } from "../CounterComponent";
 import { priceFormatter } from "../../utils/formatter";
-
-import Cart from "../../assets/ProductsForSale/Cart.svg"
 import { useContext } from "react";
 import { ContextContents} from "../../context/Context";
+import Cart from "../../assets/ProductsForSale/Cart.svg"
 
 interface CoffeeProps {
     id: number | string
@@ -13,11 +12,12 @@ interface CoffeeProps {
     price: number
     title: string
     image: void
-  } 
+} 
+
 
 export function ProductsForSale(){
     
-    const { response } = useContext(ContextContents)
+    const { Coffees } = useContext(ContextContents)
     
     return(
         <div>
@@ -26,33 +26,33 @@ export function ProductsForSale(){
 
         <ContainerProducts>
             <ContainerItemsProduct> 
-                {response.map((response:CoffeeProps)=> {
+                {Coffees.map((coffee:CoffeeProps)=> {
                     return(
                     <ItemsProduct> 
 
-                    <ImageContainer> <img src={response.image}/> </ImageContainer>
+                    <ImageContainer> <img src={coffee.image}/> </ImageContainer>
                   
-                      <TypeCoffeText>{response.title}</TypeCoffeText>
+                      <TypeCoffeText>{coffee.title}</TypeCoffeText>
                   
-                      <TitleText>{response.type}</TitleText> 
+                      <TitleText>{coffee.type}</TitleText> 
   
-                      <DescriptionText>{response.description}</DescriptionText>
+                      <DescriptionText>{coffee.description}</DescriptionText>
                       
                       <PriceProductsContainer> 
                           
-                          <span>{priceFormatter.format(response.price)}</span> 
+                          <span>{priceFormatter.format(coffee.price)}</span> 
                           
                           <BoxItems>  
                               
-                              <ContainerCounter />
+                              <CounterContent />
                             
-                            <button  id={response.id}>
+                            <ButtonAdd id={coffee.id}>
                               <CartIcon> 
                               
                                   <img src={Cart} /> 
                                   
                               </CartIcon> 
-                            </button>
+                            </ButtonAdd>
 
                           </BoxItems> 
                               

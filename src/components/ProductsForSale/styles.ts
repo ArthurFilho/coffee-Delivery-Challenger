@@ -82,4 +82,10 @@ export const TypeCoffeText = styled.p`
     color: ${props => props.theme["gold-400"]};
     background: ${props => props.theme["gold-100"]};
     text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+`
+
+export const ButtonAdd = styled.button`
+    border: none;
 `

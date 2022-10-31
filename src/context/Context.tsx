@@ -14,6 +14,8 @@ import CoffeHavaiano from "../assets/ProductsForSale/Havaiano.svg"
 import CoffeeArabe from "../assets/ProductsForSale/Árabe.svg"
 import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
+import { ButtonAddRemove, Counter } from "../components/CounterComponent/styled"
+
 interface CoffeeProps {
     id: number
     description: string
@@ -21,7 +23,8 @@ interface CoffeeProps {
     price: number
     title: string
     image: void
-  } 
+    count: number 
+   } 
 
 interface ContextType {
   response: CoffeeProps;
@@ -31,7 +34,8 @@ interface ContextProviderProps {
   children: ReactNode
 }
 
-export const response = [
+
+export const Coffees = [
   {
     id: 1,
     title: 'Tradicional',
@@ -154,15 +158,33 @@ export const response = [
   },
   ]
 
+  export const CoffeesCart = []
 
-  // export function ProductInformation(){
-  //   const [information, setInformation ] = useState()
+  export function ContainerCounter () {
 
-      
+    const [count, setCount] = useState(0)
+    return(
+        <Counter> 
+                                
+            <ButtonAddRemove  onClick={count <= 0 ? () => {} : () => setCount((count) => count - 1)}>-</ButtonAddRemove> 
+            
+            <span>{count}</span> 
+            
+            <ButtonAddRemove onClick={() => setCount((count) => count + 1)}>+</ButtonAddRemove> 
+                            
+        </Counter> 
+    )
+}
 
-  //   setInformation(prevState => [...prevState, ]);
+ export function handleCreateNewTask() {
     
-  // }
+  const [product, setProduct] = useState<CoffeeProps[]>([]);
+  
+  let product = [];
+
+
+  setProduct(state => [...state, product]);
+ }
 
 export const ContextContents = createContext({} as ContextType)
 
@@ -173,7 +195,8 @@ export function ContextProvider({children}: ContextProviderProps) {
     return (
         <ContextContents.Provider
           value={{
-            response,
+            Coffees,
+            responseCart,
           }}
         >
           {children}
