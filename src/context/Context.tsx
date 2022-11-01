@@ -29,7 +29,7 @@ interface CoffeeProps {
 interface ContextType {
   Coffees: CoffeeProps;
   HandleNewCoffee: (coffee:CoffeeProps) => Promise<void>
-  product: CoffeeProps[];
+  products: CoffeeProps[];
 }
 
 interface ContextProviderProps {
@@ -181,7 +181,7 @@ export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
 
-  const [product, setProduct] = useState<CoffeeProps[]>([]);
+  const [products, setProduct] = useState<CoffeeProps[]>([]);
     
   function HandleNewCoffee(coffee:CoffeeProps) {
     setProduct((prevState) => [coffee, ...prevState])
@@ -195,7 +195,7 @@ export function ContextProvider({children}: ContextProviderProps) {
           value={{
             Coffees,
             HandleNewCoffee,
-            product,
+            products,
           }}
         >
           {children}

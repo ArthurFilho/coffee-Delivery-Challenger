@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextValue, TextValueContainer, Title } from "./styles";
+import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextNoCoffee, TextValue, TextValueContainer, Title } from "./styles";
 import Local from "../../assets/CheckoutPage/local.svg"
 
 import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
@@ -7,15 +7,17 @@ import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
 import Banco from "../../assets/CheckoutPage/Icon3.svg"
 import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
-import CoffeeNormal from "../../assets/CheckoutPage/CoffeeNormal.svg"
 import { priceFormatter } from "../../utils/formatter";
 import { CounterContent } from "../../components/CounterComponent";
 import { ContextContents } from "../../context/Context";
 import { useContext } from "react";
+import { ClipboardText } from "phosphor-react";
 
 export function CheckoutPage() {
 
-    const { product } = useContext(ContextContents)
+    const { products } = useContext(ContextContents)
+
+    
 
     return(
         <div>
@@ -65,7 +67,7 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
         
-            {product.map((coffeC)=>{
+            {products.map((coffeC)=>{
                 return(
                     <BoxSelection> 
 
@@ -92,12 +94,19 @@ export function CheckoutPage() {
             })} 
            
 
-            <TextValueContainer>
-                    <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
-                    <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
-                    <TextValue><h3>Total</h3> <h3>R$ 29,70</h3></TextValue>
-                    <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
-            </TextValueContainer>
+                { products.length > 0 ? 
+                    <TextValueContainer>
+                        <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
+                        <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
+                        <TextValue><h3>Total</h3> <h3>R$ 29,70</h3></TextValue>
+                        <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
+                    </TextValueContainer>
+                :
+                <TextNoCoffee>
+                 <ClipboardText size={100} />
+                 <p> Nenhum café foi adicionado a lista.</p>
+                </TextNoCoffee>
+                }
 
         </ContainerSelection>
 

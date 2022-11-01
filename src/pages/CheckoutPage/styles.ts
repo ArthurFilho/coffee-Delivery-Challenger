@@ -208,3 +208,9 @@ export const ButtonsConfirm = styled.button`
 export const Title = styled.p`
     display: flex;
 `
+
+export const TextNoCoffee = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
