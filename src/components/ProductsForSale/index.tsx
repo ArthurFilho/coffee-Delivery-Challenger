@@ -6,7 +6,7 @@ import { ContextContents} from "../../context/Context";
 import Cart from "../../assets/ProductsForSale/Cart.svg"
 
 interface CoffeeProps {
-    id: number | string
+    id: number
     description: string
     type: string
     price: number
@@ -17,7 +17,7 @@ interface CoffeeProps {
 
 export function ProductsForSale(){
     
-    const { Coffees } = useContext(ContextContents)
+    const { Coffees, HandleNewCoffee } = useContext(ContextContents)
     
     return(
         <div>
@@ -46,7 +46,7 @@ export function ProductsForSale(){
                               
                               <CounterContent />
                             
-                            <ButtonAdd id={coffee.id}>
+                            <ButtonAdd onClick={() => HandleNewCoffee(coffee)} id={coffee.id}>
                               <CartIcon> 
                               
                                   <img src={Cart} /> 

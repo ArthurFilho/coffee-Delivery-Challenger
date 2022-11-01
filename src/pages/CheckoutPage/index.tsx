@@ -10,9 +10,13 @@ import Remove from "../../assets/CheckoutPage/Remove.svg"
 import CoffeeNormal from "../../assets/CheckoutPage/CoffeeNormal.svg"
 import { priceFormatter } from "../../utils/formatter";
 import { CounterContent } from "../../components/CounterComponent";
-import { CoffeesCart } from "../../context/Context";
+import { ContextContents } from "../../context/Context";
+import { useContext } from "react";
 
 export function CheckoutPage() {
+
+    const { product } = useContext(ContextContents)
+
     return(
         <div>
         
@@ -61,15 +65,15 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
         
-            {CoffeesCart.map((coffesC)=>{
+            {product.map((coffeC)=>{
                 return(
                     <BoxSelection> 
 
-                    <Title>{coffesC.tradicional}</Title>
+                    <Title>{coffeC.type}</Title>
                 
                 <PurchasedProducts>
                 
-                            <img src={coffesC.image}/> 
+                            <img src={coffeC.image}/> 
                 
                             <CounterContent /> 
                 
@@ -79,7 +83,7 @@ export function CheckoutPage() {
                 
                             </ButtonsSelection> 
                 
-                            <p>{priceFormatter.format(coffesC.price)}</p> 
+                            <p>{priceFormatter.format(coffeC.price)}</p> 
 
                 </PurchasedProducts>
                 

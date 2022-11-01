@@ -27,7 +27,9 @@ interface CoffeeProps {
    } 
 
 interface ContextType {
-  response: CoffeeProps;
+  Coffees: CoffeeProps;
+  HandleNewCoffee: (coffee:CoffeeProps) => Promise<void>
+  product: CoffeeProps[];
 }
 
 interface ContextProviderProps {
@@ -158,8 +160,6 @@ export const Coffees = [
   },
   ]
 
-  export const CoffeesCart = []
-
   export function ContainerCounter () {
 
     const [count, setCount] = useState(0)
@@ -176,27 +176,26 @@ export const Coffees = [
     )
 }
 
- export function handleCreateNewTask() {
-    
-  const [product, setProduct] = useState<CoffeeProps[]>([]);
   
-  let product = [];
-
-
-  setProduct(state => [...state, product]);
- }
-
 export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
 
-
+  const [product, setProduct] = useState<CoffeeProps[]>([]);
     
+  function HandleNewCoffee(coffee:CoffeeProps) {
+    setProduct((prevState) => [coffee, ...prevState])
+
+    console.log(coffee)
+    }
+
+
     return (
         <ContextContents.Provider
           value={{
             Coffees,
-            responseCart,
+            HandleNewCoffee,
+            product,
           }}
         >
           {children}
