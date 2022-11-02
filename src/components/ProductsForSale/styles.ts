@@ -88,4 +88,5 @@ export const TypeCoffeText = styled.p`
 
 export const ButtonAdd = styled.button`
     border: none;
+    
 `

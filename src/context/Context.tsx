@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react"
+import { createContext, ReactNode, useEffect, useState } from "react"
 
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
@@ -25,11 +25,24 @@ interface CoffeeProps {
     image: void
     count: number 
    } 
+   
+   interface CoffeeCart {
+    id: number
+    description: string
+    type: string
+    price: number
+    title: string
+    image: void
+    count: number 
+    coffees: [],
+    totalItems: number
+    total: number
+   }
 
 interface ContextType {
   Coffees: CoffeeProps;
-  HandleNewCoffee: (coffee:CoffeeProps) => Promise<void>
-  products: CoffeeProps[];
+  HandleNewCoffee: (coffee:CoffeeProps) => void;
+  cart: CoffeeCart;
 }
 
 interface ContextProviderProps {
@@ -175,27 +188,44 @@ export const Coffees = [
         </Counter> 
     )
 }
-
   
 export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
 
-  const [products, setProduct] = useState<CoffeeProps[]>([]);
-    
-  function HandleNewCoffee(coffee:CoffeeProps) {
-    setProduct((prevState) => [coffee, ...prevState])
+  const [cart, setCart] = useState({
+    coffees: [],
+    totalItems: 0,
+    total: 0,
+    })
+  function HandleNewCoffee(coffees:CoffeeProps) {
+    setCart((prevState) => [coffees, ...prevState])
 
-    console.log(coffee)
     }
-
+    // useEffect(()=>{
+    //   cart.reduce(
+    //     (acc, coffee) => {
+    //       acc.totalItems += coffee.price
+    //       acc.total += coffee.price
+    //       acc.deliveryValue += acc.total
+    //       return acc
+    //     },
+    //     {
+    //       totalItems: 0,
+    //       deliveryValue: 4.10,
+    //       total: 0,
+    //     },
+    //   )
+    // }}, [cart])
+    
+   
 
     return (
         <ContextContents.Provider
           value={{
             Coffees,
             HandleNewCoffee,
-            products,
+            cart,
           }}
         >
           {children}

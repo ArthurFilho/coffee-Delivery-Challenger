@@ -15,7 +15,7 @@ import { ClipboardText } from "phosphor-react";
 
 export function CheckoutPage() {
 
-    const { products } = useContext(ContextContents)
+    const { cart } = useContext(ContextContents)
 
     
 
@@ -40,7 +40,7 @@ export function CheckoutPage() {
 
             <div><InputRua type="text" placeholder="Rua" /></div>
             
-            <ContainerInput> <InputNumber type="text" placeholder="Numero" /> <InputComplemento type="Complemento" placeholder="CEP" /> </ContainerInput>
+            <ContainerInput> <InputNumber type="text" placeholder="Numero" /> <InputComplemento type="Complemento" placeholder="Complemento" /> </ContainerInput>
 
             <ContainerInput> <InputBairro type="text" placeholder="Bairro" /> <InputCidade type="text" placeholder="Cidade" /> <InputUF type="text" placeholder="UF" /> </ContainerInput>       
            
@@ -67,7 +67,10 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
         
-            {products.map((coffeC)=>{
+            {cart.coffees.map((coffeC)=>{
+
+
+
                 return(
                     <BoxSelection> 
 
@@ -79,7 +82,7 @@ export function CheckoutPage() {
                 
                             <CounterContent /> 
                 
-                            <ButtonsSelection>     
+                            <ButtonsSelection >     
                 
                             <img src={Remove} /> Remover
                 
@@ -94,11 +97,11 @@ export function CheckoutPage() {
             })} 
            
 
-                { products.length > 0 ? 
+                { cart.coffees.length > 0 ? 
                     <TextValueContainer>
-                        <TextValue><p>Total de itens</p> <p>R$ 29,70</p></TextValue>
-                        <TextValue><p>Entrega</p> <p>R$ 29,70</p></TextValue>                
-                        <TextValue><h3>Total</h3> <h3>R$ 29,70</h3></TextValue>
+                        <TextValue><p>Total de itens</p> <p>{priceFormatter.format(10)}</p></TextValue>
+                        <TextValue><p>Entrega</p> <p>{priceFormatter.format(4.50)}</p></TextValue>                
+                        <TextValue><h3>Total</h3> <h3>{priceFormatter.format(14.50)}</h3></TextValue>
                         <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
                     </TextValueContainer>
                 :

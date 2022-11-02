@@ -213,4 +213,6 @@ export const TextNoCoffee = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
 `
