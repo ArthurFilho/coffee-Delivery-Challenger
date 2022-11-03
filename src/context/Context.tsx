@@ -198,26 +198,37 @@ export function ContextProvider({children}: ContextProviderProps) {
     totalItems: 0,
     total: 0,
     })
-  function HandleNewCoffee(coffees:CoffeeProps) {
-    setCart((prevState) => [coffees, ...prevState])
 
-    }
-    // useEffect(()=>{
-    //   cart.reduce(
-    //     (acc, coffee) => {
-    //       acc.totalItems += coffee.price
-    //       acc.total += coffee.price
-    //       acc.deliveryValue += acc.total
-    //       return acc
-    //     },
-    //     {
-    //       totalItems: 0,
-    //       deliveryValue: 4.10,
-    //       total: 0,
-    //     },
-    //   )
-    // }}, [cart])
-    
+     function HandleNewCoffee(newCoffe:CoffeeProps) {
+      setCart(prevState => {
+        return{
+          newCoffe: [newCoffe, ...prevState.coffees],
+        ...prevState
+      }})
+
+    useEffect(()=>{
+      let count = cart.coffees.reduce(
+        (acc, coffee) => {
+          acc.totalItems += 1
+          acc.total += coffee.price
+          acc.deliveryValue += acc.total
+          return acc
+        },
+        {
+          totalItems: 0,
+          deliveryValue: 4.10,
+          total: 0,
+        },
+      )
+setCart(prevValue => {
+  coffees: [...prevValue.coffees],
+  totalItems: count.totalItems,
+  total: count.total,
+ ...prevValue,}
+ )
+  }, [cart.coffees.length])
+
+ 
    
 
     return (

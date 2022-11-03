@@ -8,7 +8,7 @@ export const MainImage = styled.div`
     display: flex;
 `
 
-export const TextContainer = styled.p`
+export const TextContainer = styled.div`
     margin-left: 1.5rem;
     display: flex;
     flex-direction: column;
