@@ -16,7 +16,7 @@ import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
 import { ButtonAddRemove, Counter } from "../components/CounterComponent/styled"
 
-interface CoffeeProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface CoffeeProps  {
     id: number
     description: string
     type: string
@@ -26,7 +26,7 @@ interface CoffeeProps extends ImgHTMLAttributes<HTMLImageElement> {
     count: number 
    } 
    
-   interface CoffeeCart  {
+   interface CoffeeCart extends ImgHTMLAttributes<HTMLImageElement> {
     coffees: CoffeeProps[],
     totalItems: number
     total: number
@@ -43,7 +43,7 @@ interface ContextProviderProps {
 }
 
 
-export const Coffees: Array<CoffeeProps> = [
+export const Coffees: Array<CoffeeProps> ...props = [
   {
     id: 1,
     title: 'Tradicional',
