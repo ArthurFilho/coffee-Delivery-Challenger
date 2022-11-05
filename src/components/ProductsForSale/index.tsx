@@ -5,15 +5,6 @@ import { useContext } from "react";
 import { ContextContents} from "../../context/Context";
 import Cart from "../../assets/ProductsForSale/Cart.svg"
 
-interface CoffeeProps {
-    id: number
-    description: string
-    type: string
-    price: number
-    title: string
-    image: void
-} 
-
 
 export function ProductsForSale(){
     
@@ -26,7 +17,7 @@ export function ProductsForSale(){
 
         <ContainerProducts>
             <ContainerItemsProduct> 
-                {Coffees.map((coffee:CoffeeProps)=> {
+                {Coffees.map((coffee)=> {
                     return(
                     <ItemsProduct> 
 

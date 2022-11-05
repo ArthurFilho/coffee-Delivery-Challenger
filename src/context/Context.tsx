@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react"
-
+import { ImgHTMLAttributes } from "react"
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
 import CoffeeCremoso from "../assets/ProductsForSale/Cremoso.svg"
@@ -16,7 +16,7 @@ import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
 import { ButtonAddRemove, Counter } from "../components/CounterComponent/styled"
 
-interface CoffeeProps {
+interface CoffeeProps extends ImgHTMLAttributes<HTMLImageElement> {
     id: number
     description: string
     type: string
@@ -26,23 +26,16 @@ interface CoffeeProps {
     count: number 
    } 
    
-   interface CoffeeCart {
-    id: number
-    description: string
-    type: string
-    price: number
-    title: string
-    image: void
-    count: number 
-    coffees: [],
+   interface CoffeeCart  {
+    coffees: CoffeeProps[],
     totalItems: number
     total: number
    }
 
 interface ContextType {
   Coffees: CoffeeProps;
-  HandleNewCoffee: (coffee:CoffeeProps) => void;
   cart: CoffeeCart;
+  HandleNewCoffee: (coffee:CoffeeProps) => void;
 }
 
 interface ContextProviderProps {
@@ -50,7 +43,7 @@ interface ContextProviderProps {
 }
 
 
-export const Coffees = [
+export const Coffees: Array<CoffeeProps> = [
   {
     id: 1,
     title: 'Tradicional',
@@ -193,7 +186,7 @@ export const ContextContents = createContext({} as ContextType)
 
 export function ContextProvider({children}: ContextProviderProps) {
 
-  const [cart, setCart] = useState({
+  const [cart, setCart] = useState<CoffeeCart>({
     coffees: [],
     totalItems: 0,
     total: 0,
@@ -202,8 +195,8 @@ export function ContextProvider({children}: ContextProviderProps) {
      function HandleNewCoffee(newCoffe:CoffeeProps) {
       setCart(prevState => {
         return{
-          newCoffe: [newCoffe, ...prevState.coffees],
-        ...prevState
+          ...prevState,
+          coffees: [newCoffe, ...prevState.coffees]
       }})
 
     useEffect(()=>{
@@ -221,10 +214,11 @@ export function ContextProvider({children}: ContextProviderProps) {
         },
       )
 setCart(prevValue => {
+  return{
   coffees: [...prevValue.coffees],
   totalItems: count.totalItems,
   total: count.total,
- ...prevValue,}
+ ...prevValue,}}
  )
   }, [cart.coffees.length])
 
@@ -235,11 +229,11 @@ setCart(prevValue => {
         <ContextContents.Provider
           value={{
             Coffees,
-            HandleNewCoffee,
             cart,
+            HandleNewCoffee,
           }}
         >
           {children}
         </ContextContents.Provider>
       )
-    }
+     }}
