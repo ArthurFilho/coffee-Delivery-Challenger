@@ -22,8 +22,7 @@ interface CoffeeProps  {
     type: string
     price: number
     title: string
-    image: void
-    count: number 
+    image: any
    } 
    
    interface CoffeeCart extends ImgHTMLAttributes<HTMLImageElement> {
@@ -33,7 +32,7 @@ interface CoffeeProps  {
    }
 
 interface ContextType {
-  Coffees: CoffeeProps;
+  Coffees: CoffeeProps[];
   cart: CoffeeCart;
   HandleNewCoffee: (coffee:CoffeeProps) => void;
 }
@@ -43,7 +42,7 @@ interface ContextProviderProps {
 }
 
 
-export const Coffees: Array<CoffeeProps> ...props = [
+export const Coffees: Array<CoffeeProps> = [
   {
     id: 1,
     title: 'Tradicional',
@@ -198,6 +197,7 @@ export function ContextProvider({children}: ContextProviderProps) {
           ...prevState,
           coffees: [newCoffe, ...prevState.coffees]
       }})
+     }
 
     useEffect(()=>{
       let count = cart.coffees.reduce(
@@ -214,12 +214,13 @@ export function ContextProvider({children}: ContextProviderProps) {
         },
       )
 setCart(prevValue => {
-  return{
+  return  {
   coffees: [...prevValue.coffees],
   totalItems: count.totalItems,
-  total: count.total,
- ...prevValue,}}
- )
+  total: count.total,  
+          }
+    }
+) 
   }, [cart.coffees.length])
 
  
@@ -236,4 +237,4 @@ setCart(prevValue => {
           {children}
         </ContextContents.Provider>
       )
-     }}
+     }
