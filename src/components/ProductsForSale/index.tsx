@@ -19,7 +19,7 @@ export function ProductsForSale(){
             <ContainerItemsProduct> 
                 {Coffees.map((coffee)=> {
                     return(
-                    <ItemsProduct> 
+                    <ItemsProduct key={coffee.id}> 
 
                     <ImageContainer> <img src={coffee.image}/> </ImageContainer>
                   

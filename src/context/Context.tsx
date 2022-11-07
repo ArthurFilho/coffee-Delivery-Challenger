@@ -15,8 +15,8 @@ import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
 import { ButtonAddRemove, Counter } from "../components/CounterComponent/styled"
 
-interface CoffeeProps  {
-    id: number
+export interface CoffeeProps  {
+    id: any
     description: string
     type: string
     price: number
@@ -35,6 +35,7 @@ interface ContextType {
   Coffees: CoffeeProps[];
   cart: CoffeeCart;
   HandleNewCoffee: (coffee:CoffeeProps) => void;
+  HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
 }
 
 interface ContextProviderProps {
@@ -200,6 +201,19 @@ export function ContextProvider({children}: ContextProviderProps) {
       }})
      }
 
+     function HandleDeleteCoffee(coffeeToDelete:any) {
+      const filterCoffee = cart.coffees.filter( cart => 
+       coffeeToDelete !== cart.id
+       )
+       setCart(state => {
+        return {
+          ...state,
+          coffees: [...filterCoffee],
+        }
+       }
+      ) 
+     }
+
     useEffect(()=>{
       let count = cart.coffees.reduce(
         (acc, coffee) => {
@@ -233,6 +247,7 @@ setCart(prevValue => {
             Coffees,
             cart,
             HandleNewCoffee,
+            HandleDeleteCoffee,
           }}
         >
           {children}

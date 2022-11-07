@@ -9,13 +9,13 @@ import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
 import { priceFormatter } from "../../utils/formatter";
 import { CounterContent } from "../../components/CounterComponent";
-import { ContextContents } from "../../context/Context";
+import { CoffeeProps, ContextContents } from "../../context/Context";
 import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
 
 export function CheckoutPage() {
 
-    const { cart } = useContext(ContextContents)
+    const { cart , HandleDeleteCoffee } = useContext(ContextContents)
 
     
 
@@ -67,32 +67,29 @@ export function CheckoutPage() {
 
             <ContainerSelection> 
         
-            {cart.coffees.map((coffeC)=>{
-
-
-
+            {cart.coffees.map((coffeeC: CoffeeProps)=>{
                 return(
-                    <BoxSelection> 
+                    <BoxSelection key={coffeeC.id}> 
 
-                    <Title>{coffeC.type}</Title>
+                    <Title>{coffeeC.type}</Title>
                 
-                <PurchasedProducts>
+                        <PurchasedProducts>
                 
-                            <img src={coffeC.image}/> 
+                            <img src={coffeeC.image}/> 
                 
                             <CounterContent /> 
                 
-                            <ButtonsSelection >     
+                            <ButtonsSelection onClick={() => HandleDeleteCoffee(coffeeC.id)}>     
                 
                             <img src={Remove} /> Remover
                 
                             </ButtonsSelection> 
                 
-                            <p>{priceFormatter.format(coffeC.price)}</p> 
+                            <p>{priceFormatter.format(coffeeC.price)}</p> 
 
-                </PurchasedProducts>
+                        </PurchasedProducts>
                 
-            </BoxSelection>
+                    </BoxSelection>
                 )
             })} 
            
