@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useEffect, useState } from "react"
-import { ImgHTMLAttributes } from "react"
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
 import CoffeeCremoso from "../assets/ProductsForSale/Cremoso.svg"
@@ -25,10 +24,11 @@ interface CoffeeProps  {
     image: any
    } 
    
-   interface CoffeeCart extends ImgHTMLAttributes<HTMLImageElement> {
+   interface CoffeeCart  {
     coffees: CoffeeProps[],
     totalItems: number
     total: number
+    deliveryValue: number
    }
 
 interface ContextType {
@@ -189,6 +189,7 @@ export function ContextProvider({children}: ContextProviderProps) {
     coffees: [],
     totalItems: 0,
     total: 0,
+    deliveryValue: 4.10,
     })
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
@@ -202,9 +203,8 @@ export function ContextProvider({children}: ContextProviderProps) {
     useEffect(()=>{
       let count = cart.coffees.reduce(
         (acc, coffee) => {
-          acc.totalItems += 1
-          acc.total += coffee.price
-          acc.deliveryValue += acc.total
+          acc.totalItems = acc.totalItems + coffee.price
+          acc.total = acc.totalItems + acc.deliveryValue
           return acc
         },
         {
@@ -218,10 +218,11 @@ setCart(prevValue => {
   coffees: [...prevValue.coffees],
   totalItems: count.totalItems,
   total: count.total,  
+  deliveryValue: count.deliveryValue,
           }
     }
 ) 
-  }, [cart.coffees.length])
+}, [cart.coffees.length])
 
  
    

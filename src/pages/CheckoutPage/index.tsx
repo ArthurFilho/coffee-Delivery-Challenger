@@ -99,9 +99,9 @@ export function CheckoutPage() {
 
                 { cart.coffees.length > 0 ? 
                     <TextValueContainer>
-                        <TextValue><p>Total de itens</p> <p>{priceFormatter.format(10)}</p></TextValue>
-                        <TextValue><p>Entrega</p> <p>{priceFormatter.format(4.50)}</p></TextValue>                
-                        <TextValue><h3>Total</h3> <h3>{priceFormatter.format(14.50)}</h3></TextValue>
+                        <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
+                        <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
+                        <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
                         <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
                     </TextValueContainer>
                 :

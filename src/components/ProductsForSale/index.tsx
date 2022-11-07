@@ -37,7 +37,7 @@ export function ProductsForSale(){
                               
                               <CounterContent />
                             
-                            <ButtonAdd onClick={() => HandleNewCoffee(coffee)} id={coffee.id}>
+                            <ButtonAdd onClick={() => HandleNewCoffee(coffee)}>
                               <CartIcon> 
                               
                                   <img src={Cart} /> 
