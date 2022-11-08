@@ -13,7 +13,6 @@ import CoffeHavaiano from "../assets/ProductsForSale/Havaiano.svg"
 import CoffeeArabe from "../assets/ProductsForSale/Árabe.svg"
 import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
-import { ButtonAddRemove, Counter } from "../components/CounterComponent/styled"
 
 export interface CoffeeProps  {
     id: any
@@ -22,6 +21,7 @@ export interface CoffeeProps  {
     price: number
     title: string
     image: any
+    quantity: number
    } 
    
    interface CoffeeCart  {
@@ -29,6 +29,7 @@ export interface CoffeeProps  {
     totalItems: number
     total: number
     deliveryValue: number
+    count: number
    }
 
 interface ContextType {
@@ -36,6 +37,8 @@ interface ContextType {
   cart: CoffeeCart;
   HandleNewCoffee: (coffee:CoffeeProps) => void;
   HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
+  HandleAddCoffeeQuantity:() => void;
+  HandleRemoveCoffeeQuantity:() => void;
 }
 
 interface ContextProviderProps {
@@ -51,6 +54,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 10,
     type: 'Expresso Tradicional',
     image: CoffeeNormal,
+    quantity: count,
   },
   {
     id: 2,
@@ -59,6 +63,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 29.90,
     type: 'Expresso Americano',
     image: CoffeeAmericano,
+    quantity: count,
   },
   {
     id: 3,
@@ -67,6 +72,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Expresso Cremoso',
     image: CoffeeCremoso,
+    quantity: count,
   },
   {
     id: 4,
@@ -75,6 +81,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Expresso Gelado',
     image: CoffeeGelado,
+    quantity: count,
   },
   {
     id: 5,
@@ -83,6 +90,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Latte',
     image: CoffeeLatte,
+    quantity: count,
   },
   {
     id: 6,
@@ -91,6 +99,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Capuccino',
     image: CoffeeCapuccino,
+    quantity: count,
   },
   {
     id: 7,
@@ -99,6 +108,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Macchiato',
     image: CoffeeMacchiato,
+    quantity: count,
   },
   {
     id: 8,
@@ -107,6 +117,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Mocaccino',
     image: CoffeeMocaccino,
+    quantity: count,
   },
   {
     id: 9,
@@ -115,6 +126,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Chocolate Quente',
     image: CoffeeChocolateQuente,
+    quantity: count,
   },
   {
     id: 10,
@@ -123,6 +135,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 50.90,
     type: 'Cubano',
     image: CoffeeCubano,
+    quantity: count,
   },
   {
     id: 11,
@@ -131,6 +144,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Havaiano',
     image: CoffeHavaiano,
+    quantity: count,
   },
   {
     id: 12,
@@ -139,6 +153,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Árabe',
     image: CoffeeArabe,
+    quantity: count,
   },
   {
     id: 13,
@@ -147,6 +162,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Irlandês',
     image: CoffeeIrlandes,
+    quantity: count,
   },
   {
     id: 14,
@@ -155,6 +171,7 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Turcano',
     image: CoffeeCremoso,
+    quantity: count,
   },
   {
     id: 15,
@@ -163,24 +180,10 @@ export const Coffees: Array<CoffeeProps> = [
     price: 9.90,
     type: 'Inglês',
     image: CoffeeCubano,
+    quantity: count,
   },
   ]
 
-  export function ContainerCounter () {
-
-    const [count, setCount] = useState(0)
-    return(
-        <Counter> 
-                                
-            <ButtonAddRemove  onClick={count <= 0 ? () => {} : () => setCount((count) => count - 1)}>-</ButtonAddRemove> 
-            
-            <span>{count}</span> 
-            
-            <ButtonAddRemove onClick={() => setCount((count) => count + 1)}>+</ButtonAddRemove> 
-                            
-        </Counter> 
-    )
-}
   
 export const ContextContents = createContext({} as ContextType)
 
@@ -191,9 +194,11 @@ export function ContextProvider({children}: ContextProviderProps) {
     totalItems: 0,
     total: 0,
     deliveryValue: 4.10,
+    count: 0,
     })
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
+      
       setCart(prevState => {
         return{
           ...prevState,
@@ -213,9 +218,53 @@ export function ContextProvider({children}: ContextProviderProps) {
        }
       ) 
      }
+     function HandleAddCoffeeQuantity() {
+      let counter = cart.coffees.reduce(
+        (acc) => {
+          if(cart.count <= 0){
+          return () => {}
+          }
+          else{ 
+          return acc.count - 1
+          }
+        },
+        {
+          count: count,
+        },
+        )
+        setCart(
+          state => { 
+            return{
+          ...state,
+          count: counter.count,
+              }
+            }
+          )
+      // cart.count <= 0 ? () => {} : () => setCart((count) => count - 1)
+     }
+
+     function HandleRemoveCoffeeQuantity() {
+      let counter = cart.coffees.reduce(
+        (acc) => {
+          acc.count + 1
+          return acc
+        },
+        {
+          count: 0,
+        },
+        )
+      setCart(
+        state => { 
+          return{
+        ...state,
+        count: counter.count,
+            }
+          }
+        )
+     }
 
     useEffect(()=>{
-      let count = cart.coffees.reduce(
+      let counter = cart.coffees.reduce(
         (acc, coffee) => {
           acc.totalItems = acc.totalItems + coffee.price
           acc.total = acc.totalItems + acc.deliveryValue
@@ -230,9 +279,9 @@ export function ContextProvider({children}: ContextProviderProps) {
 setCart(prevValue => {
   return  {
   coffees: [...prevValue.coffees],
-  totalItems: count.totalItems,
-  total: count.total,  
-  deliveryValue: count.deliveryValue,
+  totalItems: counter.totalItems,
+  total: counter.total,  
+  deliveryValue: counter.deliveryValue,
           }
     }
 ) 
@@ -246,6 +295,8 @@ setCart(prevValue => {
           value={{
             Coffees,
             cart,
+            HandleAddCoffeeQuantity,
+            HandleRemoveCoffeeQuantity,
             HandleNewCoffee,
             HandleDeleteCoffee,
           }}
