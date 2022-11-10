@@ -36,6 +36,8 @@ interface ContextType {
   cart: CoffeeCart;
   HandleNewCoffee: (coffee:CoffeeProps) => void;
   HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
+  HandleAddQuantityCoffee: () => void;
+  HandleRemoveQuantityCoffee: () => void;
 }
 
 interface ContextProviderProps {
@@ -181,6 +183,7 @@ export const Coffees: Array<CoffeeProps> = [
   },
   ]
 
+  export let CountCoffee = {...Coffees}
   
 export const ContextContents = createContext({} as ContextType)
 
@@ -199,7 +202,27 @@ export function ContextProvider({children}: ContextProviderProps) {
         return{
           ...prevState,
           coffees: [newCoffe, ...prevState.coffees]
-      }})
+      }
+    }
+  )  
+}
+
+     function HandleAddQuantityCoffee() {
+      CountCoffee = Coffees.map(valor => {
+        if(valor.id == Coffees) {
+        let copia = valor;
+        copia.quantity = copia.quantity + 1;
+        return copia;
+        } else {
+        return valor;
+        }
+        })
+        
+        setCart(cart)
+     }
+
+     function HandleRemoveQuantityCoffee () {
+
      }
 
      function HandleDeleteCoffee(coffeeToDelete:any) {
@@ -247,6 +270,8 @@ setCart(prevValue => {
           value={{
             Coffees,
             cart,
+            HandleAddQuantityCoffee,
+            HandleRemoveQuantityCoffee,
             HandleNewCoffee,
             HandleDeleteCoffee,
           }}

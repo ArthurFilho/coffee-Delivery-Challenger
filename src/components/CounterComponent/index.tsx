@@ -1,18 +1,18 @@
 import { useContext } from "react";
 import { ContextContents } from "../../context/Context";
 import { ButtonAddRemove, Counter } from "./styled";
-const { cart, HandleAddCoffee, HandleRemoveCoffee } = useContext(ContextContents)
+const { Coffees, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee } = useContext(ContextContents)
 
 export function CounterContent() {
 
     return(
       <Counter> 
                                 
-            <ButtonAddRemove  onClick={HandleAddCoffee}>-</ButtonAddRemove> 
+            <ButtonAddRemove  onClick={HandleAddQuantityCoffee}>-</ButtonAddRemove> 
             
-            <span>{cart.count}</span> 
+            <span> {Coffees.map((coffee) => {return(coffee.quantity)})} </span> 
             
-            <ButtonAddRemove onClick={HandleRemoveCoffee}>+</ButtonAddRemove> 
+            <ButtonAddRemove onClick={HandleRemoveQuantityCoffee}>+</ButtonAddRemove> 
                             
         </Counter>
     )
