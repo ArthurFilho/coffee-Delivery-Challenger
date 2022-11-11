@@ -36,8 +36,8 @@ interface ContextType {
   cart: CoffeeCart;
   HandleNewCoffee: (coffee:CoffeeProps) => void;
   HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
-  HandleAddQuantityCoffee: () => void;
-  HandleRemoveQuantityCoffee: () => void;
+  HandleAddQuantityCoffee: (CoffeeId:number) => void;
+  HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
 }
 
 interface ContextProviderProps {
@@ -183,8 +183,6 @@ export const Coffees: Array<CoffeeProps> = [
   },
   ]
 
-  export let CountCoffee = {...Coffees}
-
   
 export const ContextContents = createContext({} as ContextType)
 
@@ -196,6 +194,9 @@ export function ContextProvider({children}: ContextProviderProps) {
     total: 0,
     deliveryValue: 4.10,
     })
+ 
+  const [copyCoffee, setCopyCoffee] = useState(Coffees)
+   
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
       
@@ -208,10 +209,11 @@ export function ContextProvider({children}: ContextProviderProps) {
   )  
 }
 
-     function HandleAddQuantityCoffee() {
-      CountCoffee = Coffees.map(valor => {
-        if(valor.id == Coffees) {
-        let copia = valor;
+
+     function HandleAddQuantityCoffee(CoffeeId:number) {
+       const newCoffee = copyCoffee.map(valor => {
+        if(valor.id == CoffeeId) {
+        let copia = {...valor};
         copia.quantity = copia.quantity + 1;
         return copia;
         } else {
@@ -219,11 +221,33 @@ export function ContextProvider({children}: ContextProviderProps) {
         }
         })
         
-        setCart(cart)
+        setCopyCoffee(state => {
+          return{
+            ...state,
+            coffees: [...newCoffee]
+          }
+        }
+      )
      }
 
-     function HandleRemoveQuantityCoffee () {
-
+     function HandleRemoveQuantityCoffee (CoffeeId:number) {
+      let newCoffee = copyCoffee.map(valor => {
+        if(valor.id == CoffeeId) {
+        let copia = {...valor};
+        copia.quantity = copia.quantity - 1;
+        return copia;
+        } else {
+        return valor;
+        }
+        })
+        
+        setCopyCoffee(state => {
+          return{
+            ...state,
+            coffees: [newCoffee]
+          }
+        }
+      )
      }
 
      function HandleDeleteCoffee(coffeeToDelete:any) {

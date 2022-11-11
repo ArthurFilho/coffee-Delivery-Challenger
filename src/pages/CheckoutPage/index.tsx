@@ -78,11 +78,11 @@ export function CheckoutPage() {
                 
                             <Counter> 
                                  
-                                 <ButtonAddRemove  onClick={HandleAddQuantityCoffee}>-</ButtonAddRemove> 
+                                 <ButtonAddRemove  onClick={() => HandleRemoveQuantityCoffee(coffeeC.id)}> - </ButtonAddRemove> 
                                  
                                  <span> {coffeeC.quantity} </span> 
                                  
-                                 <ButtonAddRemove onClick={HandleRemoveQuantityCoffee}>+</ButtonAddRemove> 
+                                 <ButtonAddRemove onClick={() => HandleAddQuantityCoffee(coffeeC.id)}> + </ButtonAddRemove> 
                                                  
                              </Counter> 
                 
