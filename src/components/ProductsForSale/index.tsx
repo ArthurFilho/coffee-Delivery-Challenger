@@ -1,14 +1,14 @@
 import { BoxItems, ButtonAdd, CartIcon, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
-import { CounterContent } from "../CounterComponent";
 import { priceFormatter } from "../../utils/formatter";
 import { useContext } from "react";
 import { ContextContents} from "../../context/Context";
 import Cart from "../../assets/ProductsForSale/Cart.svg"
+import { ButtonAddRemove, Counter } from "../../styles/CountStyle";
 
 
 export function ProductsForSale(){
     
-    const { Coffees, HandleNewCoffee } = useContext(ContextContents)
+    const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, Coffees, HandleNewCoffee,  } = useContext(ContextContents)
     
     return(
         <div>
@@ -35,7 +35,15 @@ export function ProductsForSale(){
                           
                           <BoxItems>  
                               
-                              <CounterContent />
+                             <Counter> 
+                                 
+                                 <ButtonAddRemove  onClick={HandleAddQuantityCoffee}>-</ButtonAddRemove> 
+                                 
+                                 <span> {coffee.quantity} </span> 
+                                 
+                                 <ButtonAddRemove onClick={HandleRemoveQuantityCoffee}>+</ButtonAddRemove> 
+                                                 
+                             </Counter> 
                             
                             <ButtonAdd onClick={() => HandleNewCoffee(coffee)}>
                               <CartIcon> 

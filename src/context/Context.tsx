@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react"
+import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
 import CoffeeCremoso from "../assets/ProductsForSale/Cremoso.svg"
@@ -184,6 +184,7 @@ export const Coffees: Array<CoffeeProps> = [
   ]
 
   export let CountCoffee = {...Coffees}
+
   
 export const ContextContents = createContext({} as ContextType)
 
@@ -262,8 +263,6 @@ setCart(prevValue => {
 ) 
 }, [cart.coffees.length])
 
- 
-   
 
     return (
         <ContextContents.Provider

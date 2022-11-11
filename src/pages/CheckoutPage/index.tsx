@@ -1,21 +1,20 @@
 import { Header } from "../../components/Header";
 import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextNoCoffee, TextValue, TextValueContainer, Title } from "./styles";
 import Local from "../../assets/CheckoutPage/local.svg"
-
 import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
 import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
 import Banco from "../../assets/CheckoutPage/Icon3.svg"
 import Cartao from "../../assets/CheckoutPage/Icon4.svg"
 import Remove from "../../assets/CheckoutPage/Remove.svg"
 import { priceFormatter } from "../../utils/formatter";
-import { CounterContent } from "../../components/CounterComponent";
 import { CoffeeProps, ContextContents } from "../../context/Context";
 import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
+import { ButtonAddRemove, Counter } from "../../styles/CountStyle";
 
 export function CheckoutPage() {
 
-    const { cart , HandleDeleteCoffee } = useContext(ContextContents)
+    const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
 
     
 
@@ -77,7 +76,15 @@ export function CheckoutPage() {
                 
                             <img src={coffeeC.image}/> 
                 
-                            <CounterContent /> 
+                            <Counter> 
+                                 
+                                 <ButtonAddRemove  onClick={HandleAddQuantityCoffee}>-</ButtonAddRemove> 
+                                 
+                                 <span> {coffeeC.quantity} </span> 
+                                 
+                                 <ButtonAddRemove onClick={HandleRemoveQuantityCoffee}>+</ButtonAddRemove> 
+                                                 
+                             </Counter> 
                 
                             <ButtonsSelection onClick={() => HandleDeleteCoffee(coffeeC.id)}>     
                 
