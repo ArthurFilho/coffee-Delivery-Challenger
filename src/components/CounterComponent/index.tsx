@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { ContextContents } from "../../context/Context";
 import { ButtonAddRemove, Counter } from "./styled";
-const { Coffees, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee } = useContext(ContextContents)
+
 
 export function CounterContent() {
+
+    const { Coffees, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee } = useContext(ContextContents)
 
     return(
       <Counter> 
