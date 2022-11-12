@@ -37,11 +37,11 @@ export function ProductsForSale(){
                               
                              <Counter> 
                                  
-                                 <ButtonAddRemove  onClick={HandleAddQuantityCoffee}>-</ButtonAddRemove> 
+                                 <ButtonAddRemove  onClick={()=> {}}>-</ButtonAddRemove> 
                                  
                                  <span> {coffee.quantity} </span> 
                                  
-                                 <ButtonAddRemove onClick={HandleRemoveQuantityCoffee}>+</ButtonAddRemove> 
+                                 <ButtonAddRemove onClick={()=> {}}>+</ButtonAddRemove> 
                                                  
                              </Counter> 
                             

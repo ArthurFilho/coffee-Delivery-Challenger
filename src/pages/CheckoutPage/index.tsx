@@ -10,7 +10,7 @@ import { priceFormatter } from "../../utils/formatter";
 import { CoffeeProps, ContextContents } from "../../context/Context";
 import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
-import { ButtonAddRemove, Counter } from "../../styles/CountStyle";
+import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
 
 export function CheckoutPage() {
 
@@ -77,8 +77,11 @@ export function CheckoutPage() {
                             <img src={coffeeC.image}/> 
                 
                             <Counter> 
-                                 
-                                 <ButtonAddRemove  onClick={() => HandleRemoveQuantityCoffee(coffeeC.id)}> - </ButtonAddRemove> 
+                                 {coffeeC.quantity <= 1 ? 
+                                <ButtonDisabled onClick={() => {}}>-</ButtonDisabled>
+                                 :
+                                 <ButtonAddRemove  onClick={() => HandleRemoveQuantityCoffee(coffeeC.id)}> - </ButtonAddRemove>
+                                 } 
                                  
                                  <span> {coffeeC.quantity} </span> 
                                  
@@ -92,7 +95,7 @@ export function CheckoutPage() {
                 
                             </ButtonsSelection> 
                 
-                            <p>{priceFormatter.format(coffeeC.price)}</p> 
+                            <p>{priceFormatter.format(cart.totalItems)}</p> 
 
                         </PurchasedProducts>
                 

@@ -16,3 +16,13 @@ export const Counter = styled.div`
     height: 30px;
     padding: 5px;
 `
+
+export const ButtonDisabled = styled.button`
+    border: 0;
+    height: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background: ${props => props.theme["gray-400"]};
+    color: ${props => props.theme["purple-400"]};
+    opacity: 0.3;
+`;

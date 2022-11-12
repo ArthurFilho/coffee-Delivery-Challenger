@@ -195,7 +195,6 @@ export function ContextProvider({children}: ContextProviderProps) {
     deliveryValue: 4.10,
     })
  
-  const [copyCoffee, setCopyCoffee] = useState(Coffees)
    
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
@@ -211,7 +210,7 @@ export function ContextProvider({children}: ContextProviderProps) {
 
 
      function HandleAddQuantityCoffee(CoffeeId:number) {
-       const newCoffee = copyCoffee.map(valor => {
+       const newCoffee = cart.coffees.map(valor => {
         if(valor.id == CoffeeId) {
         let copia = {...valor};
         copia.quantity = copia.quantity + 1;
@@ -221,7 +220,7 @@ export function ContextProvider({children}: ContextProviderProps) {
         }
         })
         
-        setCopyCoffee(state => {
+        setCart(state => {
           return{
             ...state,
             coffees: [...newCoffee]
@@ -231,7 +230,7 @@ export function ContextProvider({children}: ContextProviderProps) {
      }
 
      function HandleRemoveQuantityCoffee (CoffeeId:number) {
-      let newCoffee = copyCoffee.map(valor => {
+      let newCoffee = cart.coffees.map(valor => {
         if(valor.id == CoffeeId) {
         let copia = {...valor};
         copia.quantity = copia.quantity - 1;
@@ -241,10 +240,10 @@ export function ContextProvider({children}: ContextProviderProps) {
         }
         })
         
-        setCopyCoffee(state => {
+        setCart(state => {
           return{
             ...state,
-            coffees: [newCoffee]
+            coffees: [...newCoffee]
           }
         }
       )
@@ -266,7 +265,7 @@ export function ContextProvider({children}: ContextProviderProps) {
     useEffect(()=>{
       let counter = cart.coffees.reduce(
         (acc, coffee) => {
-          acc.totalItems = acc.totalItems + coffee.price
+          acc.totalItems = acc.totalItems + (coffee.price * coffee.quantity)
           acc.total = acc.totalItems + acc.deliveryValue
           return acc
         },
@@ -285,7 +284,7 @@ setCart(prevValue => {
           }
     }
 ) 
-}, [cart.coffees.length])
+}, [cart.coffees])
 
 
     return (
