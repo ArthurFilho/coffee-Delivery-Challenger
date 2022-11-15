@@ -1,15 +1,46 @@
 import { BoxItems, ButtonAdd, CartIcon, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
 import { priceFormatter } from "../../utils/formatter";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ContextContents} from "../../context/Context";
 import Cart from "../../assets/ProductsForSale/Cart.svg"
-import { ButtonAddRemove, Counter } from "../../styles/CountStyle";
+import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
 
 
 export function ProductsForSale(){
     
-    const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, Coffees, HandleNewCoffee,  } = useContext(ContextContents)
+    const { Coffees, HandleNewCoffee,  } = useContext(ContextContents)
+
+    const [ copyCoffee, setCopyCoffee] = useState(Coffees)
     
+    function HandleAddQuantityCoffeeHome(CoffeeId:number) {
+        const newCoffee = copyCoffee.map(valor => {
+         if(valor.id == CoffeeId) {
+         let copia = {...valor};
+         copia.quantity = copia.quantity + 1;
+         return copia;
+         } else {
+         return valor;
+         }
+        }
+    )
+         setCopyCoffee([...newCoffee])
+      }
+
+      function HandleRemoveQuantityCoffeeHome (CoffeeId:number) {
+        let newCoffee = copyCoffee.map(valor => {
+          if(valor.id == CoffeeId) {
+          let copia = {...valor};
+          copia.quantity = copia.quantity - 1;
+          return copia;
+          } else {
+          return valor;
+          }
+        }
+    )
+          setCopyCoffee([...newCoffee])
+       }
+
+
     return(
         <div>
 
@@ -36,12 +67,15 @@ export function ProductsForSale(){
                           <BoxItems>  
                               
                              <Counter> 
-                                 
-                                 <ButtonAddRemove  onClick={()=> {}}>-</ButtonAddRemove> 
+                                {coffee.quantity <= 1 ? 
+                                <ButtonDisabled onClick={() => {}}>-</ButtonDisabled>
+                                 :
+                                 <ButtonAddRemove  onClick={() => HandleRemoveQuantityCoffeeHome(coffee.id)}> - </ButtonAddRemove>
+                                 } 
                                  
                                  <span> {coffee.quantity} </span> 
                                  
-                                 <ButtonAddRemove onClick={()=> {}}>+</ButtonAddRemove> 
+                                 <ButtonAddRemove onClick={() => {HandleAddQuantityCoffeeHome(coffee.id)}}>+</ButtonAddRemove> 
                                                  
                              </Counter> 
                             

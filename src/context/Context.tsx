@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { createContext, ReactNode, useEffect, useState } from "react"
 import CoffeeNormal from "../assets/ProductsForSale/Coffee.svg"
 import CoffeeAmericano from "../assets/ProductsForSale/Americano.svg"
 import CoffeeCremoso from "../assets/ProductsForSale/Cremoso.svg"
@@ -31,18 +31,18 @@ export interface CoffeeProps  {
     deliveryValue: number
    }
 
-interface ContextType {
-  Coffees: CoffeeProps[];
-  cart: CoffeeCart;
-  HandleNewCoffee: (coffee:CoffeeProps) => void;
-  HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
-  HandleAddQuantityCoffee: (CoffeeId:number) => void;
-  HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
-}
+   interface ContextType {
+    Coffees: CoffeeProps[];
+    cart: CoffeeCart;
+    HandleNewCoffee: (coffee:CoffeeProps) => void;
+    HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
+    HandleAddQuantityCoffee: (CoffeeId:number) => void;
+    HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
+   }
 
-interface ContextProviderProps {
-  children: ReactNode
-}
+   interface ContextProviderProps {
+    children: ReactNode
+   }
 
 
 export const Coffees: Array<CoffeeProps> = [
@@ -198,7 +198,6 @@ export function ContextProvider({children}: ContextProviderProps) {
    
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
-      
       setCart(prevState => {
         return{
           ...prevState,
@@ -238,7 +237,8 @@ export function ContextProvider({children}: ContextProviderProps) {
         } else {
         return valor;
         }
-        })
+        }
+        )
         
         setCart(state => {
           return{
@@ -262,6 +262,7 @@ export function ContextProvider({children}: ContextProviderProps) {
       ) 
      }
 
+
     useEffect(()=>{
       let counter = cart.coffees.reduce(
         (acc, coffee) => {
@@ -275,16 +276,16 @@ export function ContextProvider({children}: ContextProviderProps) {
           total: 0,
         },
       )
-setCart(prevValue => {
-  return  {
-  coffees: [...prevValue.coffees],
-  totalItems: counter.totalItems,
-  total: counter.total,  
-  deliveryValue: counter.deliveryValue,
+      setCart(prevValue => {
+        return  {
+        coffees: [...prevValue.coffees],
+        totalItems: counter.totalItems,
+        total: counter.total,  
+        deliveryValue: counter.deliveryValue,
+                }
           }
-    }
-) 
-}, [cart.coffees])
+        )
+        }, [cart.coffees])
 
 
     return (
