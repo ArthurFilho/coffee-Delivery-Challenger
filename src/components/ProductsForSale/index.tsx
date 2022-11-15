@@ -48,7 +48,7 @@ export function ProductsForSale(){
 
         <ContainerProducts>
             <ContainerItemsProduct> 
-                {Coffees.map((coffee)=> {
+                {copyCoffee.map((coffee)=> {
                     return(
                     <ItemsProduct key={coffee.id}> 
 
