@@ -50,7 +50,7 @@ export function ProductsForSale(){
             <ContainerItemsProduct> 
                 {copyCoffee.map((coffee)=> {
                     return(
-                    <ItemsProduct key={coffee.id}> 
+                    <ItemsProduct key={coffee.id}>
 
                     <ImageContainer> <img src={coffee.image}/> </ImageContainer>
                   
@@ -62,7 +62,7 @@ export function ProductsForSale(){
                       
                       <PriceProductsContainer> 
                           
-                          <span>{priceFormatter.format(coffee.price)}</span> 
+                          <span>{priceFormatter.format(coffee.price * coffee.quantity)}</span> 
                           
                           <BoxItems>  
                               

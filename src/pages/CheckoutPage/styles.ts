@@ -203,6 +203,11 @@ export const ButtonsConfirm = styled.button`
     padding: 4px;
     border: 0;
     margin-bottom: 30px;
+
+    &:not(:disabled):hover {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
 `
 
 export const Title = styled.p`

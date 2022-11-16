@@ -109,7 +109,7 @@ export function CheckoutPage() {
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                        <ButtonsConfirm>confirmar pedido</ButtonsConfirm>
+                        <ButtonsConfirm disabled >confirmar pedido</ButtonsConfirm>
                     </TextValueContainer>
                 :
                 <TextNoCoffee>
