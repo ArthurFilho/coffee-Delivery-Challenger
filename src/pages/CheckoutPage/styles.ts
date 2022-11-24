@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
-export const BodyPage = styled.div`
+export const BodyPage = styled.form`
     display: flex;
 `
 
@@ -12,7 +12,7 @@ export const ContainerBanana = styled.div`
     width: 53%;
 `
 
-export const ContainerForm = styled.div`
+export const ContainerForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -204,8 +204,8 @@ export const ButtonsConfirm = styled.button`
     border: 0;
     margin-bottom: 30px;
 
-    &:not(:disabled):hover {
-        opacity: 0.3;
+    &:disabled {
+        opacity: 0.2;
         cursor: not-allowed;
     }
 `

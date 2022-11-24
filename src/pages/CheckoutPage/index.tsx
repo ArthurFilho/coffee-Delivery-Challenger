@@ -11,11 +11,18 @@ import { CoffeeProps, ContextContents } from "../../context/Context";
 import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
 import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
+import { useForm } from 'react-hook-form'
 
 export function CheckoutPage() {
 
     const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
+    
+   
+    const { register,handleSubmit} = useForm()
 
+    function handleFormSucess(data:any) {
+        console.log(data)
+    }
     
 
     return(
@@ -25,23 +32,23 @@ export function CheckoutPage() {
 
             <Text>Complete seu cadastro</Text>
 
-        <BodyPage>
+        <BodyPage onSubmit={handleSubmit(handleFormSucess)}>
 
             <ContainerBanana>
                
-            <ContainerForm>
+            <ContainerForm >
 
             <h3> <img src={Local} /> Endereço de Entrega </h3>
             
             <p>Informe o endereço onde deseja receber seu pedido</p>
 
-            <div><InputCep type="text" placeholder="CEP"/></div>
+            <div><InputCep placeholder="CEP" {...register('cep')} required/></div>
 
-            <div><InputRua type="text" placeholder="Rua" /></div>
+            <div><InputRua placeholder="Rua" {...register('query')} required/></div>
             
-            <ContainerInput> <InputNumber type="text" placeholder="Numero" /> <InputComplemento type="Complemento" placeholder="Complemento" /> </ContainerInput>
+            <ContainerInput> <InputNumber   placeholder="Numero" {...register('numero')} required /> <InputComplemento type="Complemento" placeholder="Complemento" {...register('complemento')} required /> </ContainerInput>
 
-            <ContainerInput> <InputBairro type="text" placeholder="Bairro" /> <InputCidade type="text" placeholder="Cidade" /> <InputUF type="text" placeholder="UF" /> </ContainerInput>       
+            <ContainerInput> <InputBairro   placeholder="Bairro" {...register('bairro')} required /> <InputCidade type="text" placeholder="Cidade" {...register('cidade')} required /> <InputUF type="text" placeholder="UF" {...register('uf')} required /> </ContainerInput>       
            
             </ContainerForm>
 
@@ -109,7 +116,7 @@ export function CheckoutPage() {
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                        <ButtonsConfirm disabled >confirmar pedido</ButtonsConfirm>
+                        <ButtonsConfirm  type="submit" >confirmar pedido</ButtonsConfirm>
                     </TextValueContainer>
                 :
                 <TextNoCoffee>
