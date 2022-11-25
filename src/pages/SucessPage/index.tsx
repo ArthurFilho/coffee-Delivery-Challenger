@@ -7,6 +7,8 @@ import Cifrao from "../../assets/SucessPage/IconCifrão.svg"
 
 
 export function SucessPage(){
+
+    
     return(
         <div>
         <Header />
@@ -19,7 +21,7 @@ export function SucessPage(){
             <C>
                 <img src={Loc}/>
             <div>
-            <h4>Entrega em Rua João Daniel Martinelli, 102</h4>
+            <h4>Entrega em Rua {}, 102</h4>
             <p>  - Salvador, BA </p>
             </div>
             </C>

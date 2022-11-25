@@ -11,18 +11,23 @@ import { CoffeeProps, ContextContents } from "../../context/Context";
 import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
 import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from "react-router-dom";
 
 export function CheckoutPage() {
 
     const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
     
+    const navigate = useNavigate();
    
-    const { register,handleSubmit} = useForm()
+    const { register, handleSubmit, control} = useForm()
 
-    function handleFormSucess(data:any) {
+ 
+
+    function handleFormSucess(data:any){
         console.log(data)
-    }
+    }    
+  
     
 
     return(
@@ -30,7 +35,7 @@ export function CheckoutPage() {
         
             <Header />
 
-            <Text>Complete seu cadastro</Text>
+            <Text>Complete seu {}</Text>
 
         <BodyPage onSubmit={handleSubmit(handleFormSucess)}>
 
@@ -44,7 +49,7 @@ export function CheckoutPage() {
 
             <div><InputCep placeholder="CEP" {...register('cep')} required/></div>
 
-            <div><InputRua placeholder="Rua" {...register('query')} required/></div>
+            <div><InputRua placeholder="Rua" {...register('rua')} required/></div>
             
             <ContainerInput> <InputNumber   placeholder="Numero" {...register('numero')} required /> <InputComplemento type="Complemento" placeholder="Complemento" {...register('complemento')} required /> </ContainerInput>
 
@@ -59,13 +64,21 @@ export function CheckoutPage() {
                 <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
             </BoxTextPayment>
 
-            <BoxPayment>
+           <Controller
+           control={control}
+           name="paymentModels"
+           render={( { field } )=> {
+            return(
+                <BoxPayment onValueChange={field.onChange} value={field.value}>
 
-                <ButtonsPayment value="card"> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
-                <ButtonsPayment value="bank"> <img src={Banco}/>cartão de débito</ButtonsPayment> 
-                <ButtonsPayment value="money"> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
+                <ButtonsPayment value="crédito"> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
+                <ButtonsPayment value="débito"> <img src={Banco}/>cartão de débito</ButtonsPayment> 
+                <ButtonsPayment value="dinheiro"> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
 
-            </BoxPayment>
+                </BoxPayment>
+            )
+           }}
+           />
 
             </ContainerPayment>
         

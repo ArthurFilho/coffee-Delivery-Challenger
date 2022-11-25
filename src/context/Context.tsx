@@ -38,7 +38,7 @@ export interface CoffeeProps  {
     HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
     HandleAddQuantityCoffee: (CoffeeId:number) => void;
     HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
-   }
+  }
 
    interface ContextProviderProps {
     children: ReactNode
@@ -227,6 +227,7 @@ export function ContextProvider({children}: ContextProviderProps) {
         }
       )
      }
+
 
      function HandleRemoveQuantityCoffee (CoffeeId:number) {
       let newCoffee = cart.coffees.map(valor => {
