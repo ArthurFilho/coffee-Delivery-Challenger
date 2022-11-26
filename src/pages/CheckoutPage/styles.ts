@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
-export const BodyPage = styled.div`
+export const BodyPage = styled.form`
     display: flex;
 `
 
-export const ContainerBanana = styled.form`
+export const ContainerBanana= styled.div`
     display: flex;
     flex-direction: column;
     width: 53%;
@@ -218,7 +218,7 @@ export const TextValue = styled.div`
 
 export const ButtonsConfirm = styled.button`
     background: ${props => props.theme["gold-200"]};
-    color: white;
+    color:  ${(props) => props.theme.white};
     display: flex;
     border: 0;
     align-items: center;

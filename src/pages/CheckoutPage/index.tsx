@@ -12,18 +12,25 @@ import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
 import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
 import { Controller, useForm } from 'react-hook-form'
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 export function CheckoutPage() {
 
-    const { OnAddForm, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
+    const { ResetCoffeesList, OnAddForm, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
    
     const { register, handleSubmit, control, reset} = useForm()
+
+    const navigate = useNavigate();
 
     function handleFormSucess(data:any){
         OnAddForm(data)
         reset()
+        navigate("/sucesspage")
+        ResetCoffeesList()
     }    
+
+ 
 
     let disabled = cart.coffees.length > 0;
 
@@ -33,7 +40,7 @@ export function CheckoutPage() {
             <Header />
 
 
-            <Text>Complete seu {}</Text>
+            <Text>Complete seu registro</Text>
 
         <BodyPage onSubmit={handleSubmit(handleFormSucess)}>
 
@@ -68,6 +75,7 @@ export function CheckoutPage() {
             </div>
             
             <ContainerInput> 
+                
                 <InputNumber 
                 disabled={!disabled}  
                 placeholder="Numero" 
@@ -188,7 +196,7 @@ export function CheckoutPage() {
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                         <ButtonsConfirm type="submit" onClick={handleFormSucess} >confirmar pedido</ButtonsConfirm> 
+                        <ButtonsConfirm type="submit"  >confirmar pedido</ButtonsConfirm> 
                     </TextValueContainer>
                 :
                 <TextNoCoffee>

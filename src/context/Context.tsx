@@ -47,6 +47,7 @@ export interface CoffeeProps  {
     HandleAddQuantityCoffee: (CoffeeId:number) => void;
     HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
     OnAddForm: (data:any) => void;
+    ResetCoffeesList: () => void;
   }
 
    interface ContextProviderProps {
@@ -194,15 +195,17 @@ export const Coffees: Array<CoffeeProps> = [
 
   
 export const ContextContents = createContext({} as ContextType)
+const getCart = localStorage.getItem('@Coffee-Delivery:state-Cart-1.0.0');
+const cartStorage = getCart ? JSON.parse(getCart) : {
+  coffees: [],
+  totalItems: 0,
+  total: 0,
+  deliveryValue: 4.10,
+  };
 
 export function ContextProvider({children}: ContextProviderProps) {
 
-  const [cart, setCart] = useState<CoffeeCart>({
-    coffees: [],
-    totalItems: 0,
-    total: 0,
-    deliveryValue: 4.10,
-    })
+  const [cart, setCart] = useState<CoffeeCart>(cartStorage)
  
     const [forms, setForms] = useState<InformationSellCoffee>({
       rua: '',
@@ -210,16 +213,35 @@ export function ContextProvider({children}: ContextProviderProps) {
       paymentModels: '',
     });
    
-
-     function HandleNewCoffee(newCoffe:CoffeeProps) {
-      setCart(prevState => {
-        return{
+    function HandleNewCoffee(newCoffe:CoffeeProps) {
+      const haveCoffee = cart.coffees.find(coffee => coffee.id == newCoffe.id)
+      if(haveCoffee){
+        const myCoffees = cart.coffees.map( coffee => {
+          if(coffee.id == newCoffe.id){
+            return {
+              ...coffee, 
+              quantity: coffee.quantity + newCoffe.quantity
+            }
+          } else{
+            return coffee;
+          }
+        })
+        setCart(prevState => {
+         return {
           ...prevState,
-          coffees: [newCoffe, ...prevState.coffees]
-      }
+          coffees: myCoffees
+         } 
+        })
+      } else{
+        setCart(prevState => {
+          return{
+            ...prevState,
+            coffees: [newCoffe, ...prevState.coffees]
+            }
+          }
+        )  
+      }   
     }
-  )  
-}
 
 
      function HandleAddQuantityCoffee(CoffeeId:number) {
@@ -281,6 +303,12 @@ export function ContextProvider({children}: ContextProviderProps) {
       setForms(data)
      }
 
+     useEffect(()=>{
+      console.log(forms)
+     }, [forms])
+     
+     let dependenceValue = cart.coffees;
+
     useEffect(()=>{
       let counter = cart.coffees.reduce(
         (acc, coffee) => {
@@ -303,7 +331,23 @@ export function ContextProvider({children}: ContextProviderProps) {
                 }
           }
         )
-        }, [])
+        }, [dependenceValue])
+
+        function ResetCoffeesList(){
+          setCart(state => {
+            return{
+              ...state,
+              coffees: []
+            }
+          }
+          )
+        }
+
+        useEffect(()=>{
+          const stateJSON = JSON.stringify(cart)
+
+          localStorage.setItem('@Coffee-Delivery:state-Cart-1.0.0', stateJSON)
+        }, [cart])
 
 
     return (
@@ -317,6 +361,7 @@ export function ContextProvider({children}: ContextProviderProps) {
             HandleNewCoffee,
             HandleDeleteCoffee,
             OnAddForm,
+            ResetCoffeesList,
           }}
         >
           {children}
