@@ -12,23 +12,19 @@ import { useContext } from "react";
 import { ClipboardText } from "phosphor-react";
 import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyle";
 import { Controller, useForm } from 'react-hook-form'
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+
 
 export function CheckoutPage() {
 
-    const { HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
-    
-    const navigate = useNavigate();
+    const { OnAddForm, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
    
     const { register, handleSubmit, control} = useForm()
 
- 
-
     function handleFormSucess(data:any){
-        console.log(data)
+        OnAddForm(data)
     }    
-  
-    
 
     return(
         <div>
@@ -129,7 +125,7 @@ export function CheckoutPage() {
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                        <ButtonsConfirm  type="submit" >confirmar pedido</ButtonsConfirm>
+                        <ButtonsConfirm type="submit" onClick={handleFormSucess} >confirmar pedido</ButtonsConfirm> 
                     </TextValueContainer>
                 :
                 <TextNoCoffee>

@@ -34,10 +34,12 @@ export interface CoffeeProps  {
    interface ContextType {
     Coffees: CoffeeProps[];
     cart: CoffeeCart;
+    forms: any;
     HandleNewCoffee: (coffee:CoffeeProps) => void;
     HandleDeleteCoffee: (removeCoffee:CoffeeProps) => void;
     HandleAddQuantityCoffee: (CoffeeId:number) => void;
     HandleRemoveQuantityCoffee: (CoffeeId:number) => void;
+    OnAddForm: (data:any) => void;
   }
 
    interface ContextProviderProps {
@@ -195,6 +197,11 @@ export function ContextProvider({children}: ContextProviderProps) {
     deliveryValue: 4.10,
     })
  
+    const [forms, setForms] = useState({
+      rua: '',
+      cidade: '',
+      paymentModels: '',
+    });
    
 
      function HandleNewCoffee(newCoffe:CoffeeProps) {
@@ -263,6 +270,13 @@ export function ContextProvider({children}: ContextProviderProps) {
       ) 
      }
 
+     function OnAddForm(data:any){
+      setForms(data)
+     }
+
+     useEffect(() => {
+        console.log(forms)
+     }, [forms])
 
     useEffect(()=>{
       let counter = cart.coffees.reduce(
@@ -294,10 +308,12 @@ export function ContextProvider({children}: ContextProviderProps) {
           value={{
             Coffees,
             cart,
+            forms,
             HandleAddQuantityCoffee,
             HandleRemoveQuantityCoffee,
             HandleNewCoffee,
             HandleDeleteCoffee,
+            OnAddForm,
           }}
         >
           {children}

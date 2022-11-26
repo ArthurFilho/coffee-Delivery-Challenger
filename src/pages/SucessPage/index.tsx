@@ -4,10 +4,13 @@ import Ilustration from "../../assets/SucessPage/Illustration.svg"
 import Loc from "../../assets/SucessPage/IconLoc.svg"
 import House from "../../assets/SucessPage/IconHouse.svg"
 import Cifrao from "../../assets/SucessPage/IconCifrão.svg"
+import { useContext } from "react";
+import { ContextContents } from "../../context/Context";
 
 
 export function SucessPage(){
 
+    const { forms } = useContext(ContextContents)
     
     return(
         <div>
@@ -21,8 +24,8 @@ export function SucessPage(){
             <C>
                 <img src={Loc}/>
             <div>
-            <h4>Entrega em Rua {}, 102</h4>
-            <p>  - Salvador, BA </p>
+            <h4>Entrega em <strong> {forms.rua} </strong></h4>
+            <p> {forms.cidade} - Salvador, BA </p>
             </div>
             </C>
             
@@ -30,7 +33,7 @@ export function SucessPage(){
             <img src={House}/>
             <div>
             <h4>Previsão de entrega</h4>
-            <p> 20 min - 30 min </p>
+            <strong> 20 min - 30 min </strong>
             </div>
             </C>
             
@@ -38,7 +41,7 @@ export function SucessPage(){
             <img src={Cifrao}/>
             <div>
             <h4> Pagamento na entrega </h4>
-            <p> Cartão de Crédito </p>
+            <p> {forms.paymentModels} </p>
             </div>
             </C>
         
