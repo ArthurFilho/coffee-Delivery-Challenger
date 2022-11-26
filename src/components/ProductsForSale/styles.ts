@@ -68,7 +68,7 @@ export const BoxItems = styled.div`
     gap: 10px;
 `
 
-export const CartIcon = styled.button`
+export const CartIcon = styled.div`
     border: 0;
     height: 20px;
     cursor: pointer;

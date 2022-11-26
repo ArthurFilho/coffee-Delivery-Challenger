@@ -14,6 +14,7 @@ import CoffeeArabe from "../assets/ProductsForSale/Árabe.svg"
 import CoffeeIrlandes from "../assets/ProductsForSale/Irlandês.svg"
 
 
+
 export interface CoffeeProps  {
     id: any
     description: string
@@ -24,6 +25,12 @@ export interface CoffeeProps  {
     quantity: number
    } 
    
+   interface InformationSellCoffee {
+      rua: string;
+      cidade: string;
+      paymentModels: string;
+   }
+
    interface CoffeeCart  {
     coffees: CoffeeProps[],
     totalItems: number
@@ -197,7 +204,7 @@ export function ContextProvider({children}: ContextProviderProps) {
     deliveryValue: 4.10,
     })
  
-    const [forms, setForms] = useState({
+    const [forms, setForms] = useState<InformationSellCoffee>({
       rua: '',
       cidade: '',
       paymentModels: '',
@@ -274,10 +281,6 @@ export function ContextProvider({children}: ContextProviderProps) {
       setForms(data)
      }
 
-     useEffect(() => {
-        console.log(forms)
-     }, [forms])
-
     useEffect(()=>{
       let counter = cart.coffees.reduce(
         (acc, coffee) => {
@@ -300,7 +303,7 @@ export function ContextProvider({children}: ContextProviderProps) {
                 }
           }
         )
-        }, [cart.coffees])
+        }, [])
 
 
     return (

@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
-export const BodyPage = styled.form`
+export const BodyPage = styled.div`
     display: flex;
 `
 
-export const ContainerBanana = styled.div`
+export const ContainerBanana = styled.form`
     display: flex;
     flex-direction: column;
     width: 53%;
 `
 
-export const ContainerForm = styled.form`
+export const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -69,10 +69,16 @@ export const Text = styled.p`
 
 export const InputCep = styled.input`
     width: 200px;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const InputRua = styled.input`
     width: 100%;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const ContainerInput = styled.div`
@@ -82,22 +88,38 @@ export const ContainerInput = styled.div`
 
 export const InputNumber = styled.input`
     width: 70%;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const InputComplemento = styled.input`
     width: 100%;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const InputBairro = styled.input`
     width: 40%;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const InputCidade = styled.input`
     width: 30%;
+    &:disabled {
+        cursor: not-allowed;
+    }
+    
 `
 
 export const InputUF = styled.input`
     width: 30%;
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export const ButtonsPayment = styled(RadioGroup.Item)`
@@ -115,15 +137,19 @@ export const ButtonsPayment = styled(RadioGroup.Item)`
     img{
         opacity: 0.5;
     }
+    
+    &:disabled {
+        cursor: not-allowed;
+    }
 
     &[data-state='checked'] {
         background: ${props => props.theme["gray-500"]};
         color: ${props => props.theme["gray-900"]};
-    
-        
+
     img {
         opacity: 1;
     }
+
     }
 `
 

@@ -14,27 +14,31 @@ import { ButtonAddRemove, ButtonDisabled, Counter } from "../../styles/CountStyl
 import { Controller, useForm } from 'react-hook-form'
 import { NavLink } from "react-router-dom";
 
-
-
 export function CheckoutPage() {
 
     const { OnAddForm, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
    
-    const { register, handleSubmit, control} = useForm()
+    const { register, handleSubmit, control, reset} = useForm()
 
     function handleFormSucess(data:any){
         OnAddForm(data)
+        reset()
     }    
+
+    let disabled = cart.coffees.length > 0;
 
     return(
         <div>
         
             <Header />
 
+
             <Text>Complete seu {}</Text>
 
         <BodyPage onSubmit={handleSubmit(handleFormSucess)}>
 
+        
+        
             <ContainerBanana>
                
             <ContainerForm >
@@ -43,13 +47,63 @@ export function CheckoutPage() {
             
             <p>Informe o endereço onde deseja receber seu pedido</p>
 
-            <div><InputCep placeholder="CEP" {...register('cep')} required/></div>
-
-            <div><InputRua placeholder="Rua" {...register('rua')} required/></div>
+            <div>
+                
+                <InputCep 
+                disabled={!disabled} 
+                placeholder="CEP" 
+                {...register('cep')}
+                 required/>
+                 
+            </div>
+         
+            <div>
             
-            <ContainerInput> <InputNumber   placeholder="Numero" {...register('numero')} required /> <InputComplemento type="Complemento" placeholder="Complemento" {...register('complemento')} required /> </ContainerInput>
+                <InputRua 
+                disabled={!disabled}
+                placeholder="Rua" 
+                {...register('rua')}
+                 required/>
+            
+            </div>
+            
+            <ContainerInput> 
+                <InputNumber 
+                disabled={!disabled}  
+                placeholder="Numero" 
+                {...register('numero')} 
+                required /> 
+                
+                <InputComplemento 
+                type="Complemento" 
+                disabled={!disabled} 
+                placeholder="Complemento" 
+                {...register('complemento')} 
+                required /> 
+                
+            </ContainerInput>
 
-            <ContainerInput> <InputBairro   placeholder="Bairro" {...register('bairro')} required /> <InputCidade type="text" placeholder="Cidade" {...register('cidade')} required /> <InputUF type="text" placeholder="UF" {...register('uf')} required /> </ContainerInput>       
+            <ContainerInput> 
+                
+                <InputBairro 
+                disabled={!disabled}  
+                placeholder="Bairro" 
+                {...register('bairro')} 
+                required /> 
+                
+                <InputCidade type="text" 
+                disabled={!disabled} 
+                placeholder="Cidade" 
+                {...register('cidade')} 
+                required /> 
+                
+                <InputUF 
+                type="text" 
+                disabled={!disabled} 
+                placeholder="UF" 
+                {...register('uf')} 
+                required /> 
+                </ContainerInput>       
            
             </ContainerForm>
 
@@ -65,11 +119,22 @@ export function CheckoutPage() {
            name="paymentModels"
            render={( { field } )=> {
             return(
-                <BoxPayment onValueChange={field.onChange} value={field.value}>
+                <BoxPayment disabled={!disabled} required onValueChange={field.onChange} value={field.value}>
 
-                <ButtonsPayment value="crédito"> <img src={Cartao}/>  Cartão de crédito</ButtonsPayment> 
-                <ButtonsPayment value="débito"> <img src={Banco}/>cartão de débito</ButtonsPayment> 
-                <ButtonsPayment value="dinheiro"> <img src={Dinheiro}/>dinheiro</ButtonsPayment>
+                <ButtonsPayment 
+                value="crédito">
+                <img src={Cartao}/>  Cartão de crédito
+                </ButtonsPayment> 
+                
+                <ButtonsPayment 
+                value="débito"> 
+                <img src={Banco}/>cartão de débito
+                </ButtonsPayment> 
+                
+                <ButtonsPayment 
+                value="dinheiro"> 
+                <img src={Dinheiro}/>dinheiro
+                </ButtonsPayment>
 
                 </BoxPayment>
             )
@@ -118,24 +183,21 @@ export function CheckoutPage() {
                     </BoxSelection>
                 )
             })} 
-           
-
-                { cart.coffees.length > 0 ? 
+             { cart.coffees.length > 0 ?
                     <TextValueContainer>
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                        <ButtonsConfirm type="submit" onClick={handleFormSucess} >confirmar pedido</ButtonsConfirm> 
+                         <ButtonsConfirm type="submit" onClick={handleFormSucess} >confirmar pedido</ButtonsConfirm> 
                     </TextValueContainer>
                 :
                 <TextNoCoffee>
                  <ClipboardText size={100} />
                  <p> Nenhum café foi adicionado a lista.</p>
                 </TextNoCoffee>
-                }
-
+            }  
         </ContainerSelection>
-
+         
         </BodyPage>
 
 
@@ -143,3 +205,5 @@ export function CheckoutPage() {
         </div>
     )
 }
+
+{/* <NavLink to="/sucesspage"></NavLink> */}
