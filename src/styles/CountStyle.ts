@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonAddRemove = styled.button`
+export const ButtonAddRemove = styled.div`
     border: 0;
     height: 20px;
     font-size: 20px;

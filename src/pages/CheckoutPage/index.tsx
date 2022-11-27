@@ -189,7 +189,7 @@ export function CheckoutPage() {
                 
                             </ButtonsSelection> 
                 
-                            <p>{priceFormatter.format(cart.totalItems)}</p> 
+                            <p>{priceFormatter.format(coffeeC.quantity * coffeeC.price)}</p> 
 
                         </PurchasedProducts>
                 
@@ -198,9 +198,18 @@ export function CheckoutPage() {
             })} 
              { cart.coffees.length > 0 ?
                     <TextValueContainer>
-                        <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
-                        <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
-                        <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
+                        <TextValue>
+                            <p>Total de itens</p> 
+                            <p>{priceFormatter.format(cart.totalItems)}</p>
+                        </TextValue>
+                        <TextValue>
+                            <p>Entrega</p> 
+                            <p>{priceFormatter.format(cart.deliveryValue)}</p>
+                        </TextValue>                
+                        <TextValue>
+                            <h3>Total</h3> 
+                            <h3>{priceFormatter.format(cart.total)}</h3>
+                        </TextValue>
                         <ButtonsConfirm type="submit" disabled={!WatchingForm} >confirmar pedido</ButtonsConfirm> 
                     </TextValueContainer>
                 :
