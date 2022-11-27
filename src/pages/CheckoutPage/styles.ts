@@ -133,6 +133,7 @@ export const ButtonsPayment = styled(RadioGroup.Item)`
     height: 51px;
     gap: 7.5px;
     padding: 15px;
+    border-radius: 10px;
 
     img{
         opacity: 0.5;
@@ -143,9 +144,10 @@ export const ButtonsPayment = styled(RadioGroup.Item)`
     }
 
     &[data-state='checked'] {
-        background: ${props => props.theme["gray-500"]};
+        background: ${props => props.theme["purple-100"]};
         color: ${props => props.theme["gray-900"]};
-
+        border: 1px solid ${props => props.theme["purple-400"]};
+        
     img {
         opacity: 1;
     }
@@ -246,4 +248,10 @@ export const TextNoCoffee = styled.div`
     flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;
+`
+
+export const ContainerTextMain = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
 `

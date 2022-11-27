@@ -29,6 +29,8 @@ export interface CoffeeProps  {
       rua: string;
       cidade: string;
       paymentModels: string;
+      uf: string;
+      bairro: string;
    }
 
    interface CoffeeCart  {
@@ -211,6 +213,8 @@ export function ContextProvider({children}: ContextProviderProps) {
       rua: '',
       cidade: '',
       paymentModels: '',
+      uf: '',
+      bairro: '',
     });
    
     function HandleNewCoffee(newCoffe:CoffeeProps) {

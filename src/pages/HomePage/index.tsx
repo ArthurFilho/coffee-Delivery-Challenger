@@ -13,7 +13,7 @@ export function HomePage () {
 
         <Header />
 
-        <ContainerMainPage>
+        <ContainerMainPage >
 
             <TextContainer>
                

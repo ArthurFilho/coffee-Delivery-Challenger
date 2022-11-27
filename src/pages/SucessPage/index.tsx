@@ -24,8 +24,8 @@ export function SucessPage(){
             <C>
                 <img src={Loc}/>
             <div>
-            <h4>Entrega em <strong> {forms.rua} </strong></h4>
-            <p> {forms.cidade} - Salvador, BA </p>
+            <h4>Entrega em <strong> {forms.bairro}, {forms.rua} </strong></h4>
+            <p> {forms.cidade} - {forms.uf} </p>
             </div>
             </C>
             

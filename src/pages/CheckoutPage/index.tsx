@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextNoCoffee, TextValue, TextValueContainer, Title } from "./styles";
+import { BodyPage, BoxPayment, BoxSelection, BoxTextPayment, ButtonsConfirm, ButtonsPayment, ButtonsSelection, ContainerBanana, ContainerForm, ContainerInput, ContainerPayment, ContainerSelection, ContainerTextMain, InputBairro, InputCep, InputCidade, InputComplemento, InputNumber, InputRua, InputUF, PurchasedProducts, Text, TextNoCoffee, TextValue, TextValueContainer, Title } from "./styles";
 import Local from "../../assets/CheckoutPage/local.svg"
 import Icon1 from "../../assets/CheckoutPage/Icon1.svg"
 import Dinheiro from "../../assets/CheckoutPage/Icon2.svg"
@@ -19,7 +19,7 @@ export function CheckoutPage() {
 
     const { ResetCoffeesList, OnAddForm, HandleAddQuantityCoffee, HandleRemoveQuantityCoffee, cart , HandleDeleteCoffee } = useContext(ContextContents)
    
-    const { register, handleSubmit, control, reset} = useForm()
+    const { register, handleSubmit, control, reset, watch} = useForm()
 
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export function CheckoutPage() {
         ResetCoffeesList()
     }    
 
- 
+    let WatchingForm = watch('paymentModels')
 
     let disabled = cart.coffees.length > 0;
 
@@ -39,8 +39,13 @@ export function CheckoutPage() {
         
             <Header />
 
-
+            <ContainerTextMain>
+                
             <Text>Complete seu registro</Text>
+
+            <Text>Cafés selecionados</Text>
+            
+            </ContainerTextMain>
 
         <BodyPage onSubmit={handleSubmit(handleFormSucess)}>
 
@@ -124,7 +129,7 @@ export function CheckoutPage() {
 
            <Controller
            control={control}
-           name="paymentModels"
+           {...register('paymentModels')}
            render={( { field } )=> {
             return(
                 <BoxPayment disabled={!disabled} required onValueChange={field.onChange} value={field.value}>
@@ -196,7 +201,7 @@ export function CheckoutPage() {
                         <TextValue><p>Total de itens</p> <p>{priceFormatter.format(cart.totalItems)}</p></TextValue>
                         <TextValue><p>Entrega</p> <p>{priceFormatter.format(cart.deliveryValue)}</p></TextValue>                
                         <TextValue><h3>Total</h3> <h3>{priceFormatter.format(cart.total)}</h3></TextValue>
-                        <ButtonsConfirm type="submit"  >confirmar pedido</ButtonsConfirm> 
+                        <ButtonsConfirm type="submit" disabled={!WatchingForm} >confirmar pedido</ButtonsConfirm> 
                     </TextValueContainer>
                 :
                 <TextNoCoffee>
