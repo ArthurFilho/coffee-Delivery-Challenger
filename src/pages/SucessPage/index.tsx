@@ -1,11 +1,12 @@
 import { Header } from "../../components/Header";
-import { C, ContainerAllThings, ContainerValue } from "./styles";
+import { C, ContainerAllThings, ContainerTextMain, ContainerValue, Text, TextMain } from "./styles";
 import Ilustration from "../../assets/SucessPage/Illustration.svg"
 import Loc from "../../assets/SucessPage/IconLoc.svg"
 import House from "../../assets/SucessPage/IconHouse.svg"
 import Cifrao from "../../assets/SucessPage/IconCifrão.svg"
 import { useContext } from "react";
 import { ContextContents } from "../../context/Context";
+
 
 
 export function SucessPage(){
@@ -16,8 +17,15 @@ export function SucessPage(){
         <div>
         <Header />
 
-        <ContainerAllThings>
+        <ContainerTextMain>
 
+        <TextMain> Uhu, Pedido foi confirmado!!!</TextMain> 
+
+        <Text>Agora é só aguardar que logo o café chegará até você!!</Text>
+
+        </ContainerTextMain>
+
+        <ContainerAllThings>
             
         <ContainerValue>
             

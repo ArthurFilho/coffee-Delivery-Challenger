@@ -37,3 +37,25 @@ export const C = styled.div`
     align-items: center;
     gap: 10px;
 `
+
+export const ContainerTextMain = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const Text = styled.p`
+    display: flex;
+    margin-left: 10px;
+    font-weight: bold;
+    display: absolute;
+`
+
+export const TextMain = styled.p`
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 10px;
+    font-weight: bold;
+    display: absolute;
+    font-size: 50px;
+    color: ${props => props.theme["gold-400"]};
+`
