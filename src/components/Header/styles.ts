@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import * as Switch from '@radix-ui/react-switch';
 
 export const HeaderContainer = styled.header`
+  width: 100%;
   background: ${(props) => props.theme.white};
   padding: 2.5rem 0 7.5rem;
   height: 100px;

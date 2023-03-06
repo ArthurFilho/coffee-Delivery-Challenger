@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
+export const ContainerAllThings = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
 export const ContainerProducts = styled.div`
     display: flex;
 `
 
 export const HeaderText = styled.h1`
-    margin-left: 1rem;
+    width: 80%;
     text-align: left;
     margin-bottom: 2rem;
 `

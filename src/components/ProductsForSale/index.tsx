@@ -1,4 +1,4 @@
-import { BoxItems, ButtonAdd, CartIcon, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
+import { BoxItems, ButtonAdd, CartIcon, ContainerAllThings, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
 import { priceFormatter } from "../../utils/formatter";
 import { useContext, useState } from "react";
 import { ContextContents} from "../../context/Context";
@@ -42,7 +42,7 @@ export function ProductsForSale(){
 
 
     return(
-        <div>
+        <ContainerAllThings>
 
             <HeaderText>Nossos cafés</HeaderText>
 
@@ -94,6 +94,6 @@ export function ProductsForSale(){
                 )})}
             </ContainerItemsProduct>
         </ContainerProducts>
-    </div>
+    </ContainerAllThings>
     )
 }
