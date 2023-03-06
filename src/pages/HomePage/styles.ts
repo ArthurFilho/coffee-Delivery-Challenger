@@ -17,7 +17,6 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 `
 
 export const MainText = styled.p`
@@ -36,23 +35,24 @@ export const SubText = styled.p`
 export const ContainerIcons = styled.div`
     width: 100%;
     height: 50px;
+    margin-top: 50px;
     display: flex;
-    flex-direction: column;
     align-items: center;
 `
 
 export const TextIcons = styled.div`
-    width: 500px;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     margin-bottom: 1rem;
         div {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 `
 
