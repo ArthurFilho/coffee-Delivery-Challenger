@@ -40,12 +40,12 @@ export function HomePage () {
                 
                 <div>
                     <img src={IconDois}/>  
-                    <p> Embalagem mantém o café intacto</p> 
+                    <p> O café chega fresquinho </p> 
                 </div>
              
                 <div>
                     <img src={IconQuatro}/> 
-                    <p> O café chega fresquinho até você</p>    
+                    <p> O café chega intacto </p>    
                 </div> 
 
               </TextIcons> 

@@ -5,6 +5,7 @@ export const ContainerMainPage = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 80px;
 `
 
 export const MainImage = styled.div`
@@ -41,7 +42,7 @@ export const ContainerIcons = styled.div`
 `
 
 export const TextIcons = styled.div`
-    width: 100%;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,13 +51,13 @@ export const TextIcons = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: left;
             gap: 5px;
             margin-bottom: 5px;
         }
 `
 
 export const ContainerAllThings = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

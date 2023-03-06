@@ -2,28 +2,42 @@ import styled from "styled-components";
 
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
+export const ContainerAllThings = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`
+
 export const BodyPage = styled.form`
     display: flex;
+    width: 100%;
 `
 
 export const ContainerBanana= styled.div`
     display: flex;
+    align-items: center;
     flex-direction: column;
-    width: 53%;
+    width: 60%;
 `
 
 export const ContainerForm = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: column;
+    padding: 10px;
     gap: 10px;
     height: 300px;
-    width: 95%;
+    width: 65%;
     margin-left: 15px;
     margin-right: 15px;
     padding-left: 10px;
     padding-right: 10px;
     background: ${props => props.theme["gray-100"]};
     
+    h3 {
+        display: flex;
+        align-items: center;
+    }
 
     input{
         display: flex;
@@ -39,36 +53,46 @@ export const ContainerPayment = styled.div`
    background: ${props => props.theme["gray-100"]};
    margin-left: 15px;
    margin-top: 15px;
+   align-items: center;
    flex-direction: column;
    display: flex;
-   height: 140px;
+   height: 180px;
    margin-right: 15px;
-   width: 95%;
+   width: 65%;
    margin-bottom: 15px;
    padding: 10px;
+   div {
+    width: 100%;
+   }
 `
 
 export const ContainerSelection = styled.div`
-    background: ${props => props.theme["gray-100"]};
     width: 45%;
-    margin-right: 15px;
     display: flex;
+    flex-direction: column;
     border-radius: 10px 50px 10px 10px;
     flex-direction: column;
     align-items: center;
-    float: right;
     height: 100%;
+    margin-right: 100px;
+`
+
+export const CoffeesSelected = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: ${props => props.theme["gray-100"]};
 `
 
 export const Text = styled.p`
     display: flex;
-    margin-left: 10px;
     font-weight: bold;
     margin-bottom: 30px;
 `
 
 export const InputCep = styled.input`
-    width: 200px;
+    width: 60%;
     &:disabled {
         cursor: not-allowed;
     }
@@ -83,25 +107,32 @@ export const InputRua = styled.input`
 
 export const ContainerInput = styled.div`
     display: flex;
+    flex-direction: column;
+    width: 90%;
     gap: 10px;
+        div {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+        }
 `
 
 export const InputNumber = styled.input`
-    width: 70%;
+    width: 50%;
     &:disabled {
         cursor: not-allowed;
     }
 `
 
 export const InputComplemento = styled.input`
-    width: 100%;
+    width: 50%;
     &:disabled {
         cursor: not-allowed;
     }
 `
 
 export const InputBairro = styled.input`
-    width: 40%;
+    width: 50%;
     &:disabled {
         cursor: not-allowed;
     }
@@ -116,7 +147,7 @@ export const InputCidade = styled.input`
 `
 
 export const InputUF = styled.input`
-    width: 30%;
+    width: 20%;
     &:disabled {
         cursor: not-allowed;
     }
@@ -165,10 +196,12 @@ export const BoxTextPayment = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    margin-left: 15px;
 
     h3{
         display: flex;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     p{
@@ -246,12 +279,28 @@ export const TextNoCoffee = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 `
 
 export const ContainerTextMain = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 750px;
+    width: 60%;
+    flex-direction: column;
+`
+
+export const ContainerTextMainInside = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    h3{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    p{
+        padding-left: 20px;
+    }
 `

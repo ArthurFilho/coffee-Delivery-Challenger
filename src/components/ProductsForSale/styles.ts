@@ -27,29 +27,34 @@ export const ContainerItemsProduct = styled.div`
 export const ItemsProduct = styled.div`
     display: flex;
     flex-direction: column;
-    width: 25%;
-    height: 24rem;
+    width: 20%;
+    height: 25rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: ${props => props.theme["gray-100"]};
     border-radius: 10px 50px 10px 10px;
     margin-bottom: 2rem;
+    
+        span {
+            font-size: 20px;
+        }
 `
 
 export const ImageContainer = styled.div`
     display: flex;
     margin-bottom: 2.5rem;
+    margin-bottom: 25px;
 `
 
 export const TitleText = styled.h1`
     display: flex;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 1rem;
     text-align: center;
     border-radius: 4px;
-    
+    margin-bottom: 25px;
 `
 
 export const DescriptionText = styled.p`
@@ -58,6 +63,8 @@ export const DescriptionText = styled.p`
     margin-bottom: 1rem;
     text-align: center;
     padding-left: 10px;
+    margin-bottom: 25px;
+    text-align: center;
 `
 
 export const PriceProductsContainer = styled.div`
@@ -83,14 +90,18 @@ export const CartIcon = styled.div`
     align-items: center;
 `
 
-export const TypeCoffeText = styled.p`
+export const TypeCoffeeText = styled.p`
     display: flex;
+    gap: 10px;
     margin-bottom: 2rem;
     color: ${props => props.theme["gold-400"]};
-    background: ${props => props.theme["gold-100"]};
     text-align: center;
-    padding: 3px;
     border-radius: 5px;
+    p {
+        padding: 5px;
+        border-radius: 5px;
+        background: ${props => props.theme["gold-100"]};
+    }
 `
 
 export const ButtonAdd = styled.button`

@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { C, ContainerAllThings, ContainerTextMain, ContainerValue, Text, TextMain } from "./styles";
+import { C, ContainerAllThings, ContainerSucessPage, ContainerTextMain, ContainerValue, Text, TextMain } from "./styles";
 import Ilustration from "../../assets/SucessPage/Illustration.svg"
 import Loc from "../../assets/SucessPage/IconLoc.svg"
 import House from "../../assets/SucessPage/IconHouse.svg"
@@ -14,7 +14,7 @@ export function SucessPage(){
     const { forms } = useContext(ContextContents)
     
     return(
-        <div>
+        <ContainerSucessPage>
         <Header />
 
         <ContainerTextMain>
@@ -62,6 +62,6 @@ export function SucessPage(){
         
         </ContainerAllThings>
         
-        </div>
+        </ContainerSucessPage>
     )
 }

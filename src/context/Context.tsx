@@ -21,6 +21,7 @@ export interface CoffeeProps  {
     type: string
     price: number
     title: string
+    titleSecondary?: string
     image: any
     quantity: number
    } 
@@ -88,6 +89,7 @@ export const Coffees: Array<CoffeeProps> = [
   {
     id: 4,
     title: 'Tradicional gelado',
+    titleSecondary: ' gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     price: 9.90,
     type: 'Expresso Gelado',
@@ -97,6 +99,7 @@ export const Coffees: Array<CoffeeProps> = [
   {
     id: 5,
     title: 'Tradicional com leite',
+    titleSecondary: 'com leite',
     description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     price: 9.90,
     type: 'Latte',
@@ -105,7 +108,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 6,
-    title: 'Tradicional com leite',
+    title: 'Tradicional',
+    titleSecondary: 'com leite',
     description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
     price: 9.90,
     type: 'Capuccino',
@@ -114,7 +118,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 7,
-    title: 'Tradicional com leite',
+    title: 'Tradicional',
+    titleSecondary: 'com leite',
     description: 'Café expresso misturado com um pouco de leite quente e espuma',
     price: 9.90,
     type: 'Macchiato',
@@ -123,7 +128,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 8,
-    title: 'Tradicional com leite',
+    title: 'Tradicional',
+    titleSecondary: 'com leite',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     price: 9.90,
     type: 'Mocaccino',
@@ -132,7 +138,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 9,
-    title: 'Tradicional com leite',
+    title: 'Tradicional',
+    titleSecondary: 'com leite',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     price: 9.90,
     type: 'Chocolate Quente',
@@ -141,7 +148,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 10,
-    title: 'Especial alcoólico gelado',
+    title: 'Especial ',
+    titleSecondary: 'alcoólico gelado',
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
     price: 50.90,
     type: 'Cubano',
@@ -168,7 +176,8 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 13,
-    title: 'Especial alcoólico',
+    title: 'Especial',
+    titleSecondary: 'alcoólico',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     price: 9.90,
     type: 'Irlandês',
@@ -186,11 +195,22 @@ export const Coffees: Array<CoffeeProps> = [
   },
   {
     id: 15,
-    title: 'Especial alcoólico',
-    description: 'Bebida a base de café, cholate, açúcar e chantilly',
+    title: 'Especial',
+    titleSecondary: 'alcoólico',
+    description: 'Bebida a base de café, chocolate, açúcar e chantilly e nutella',
     price: 9.90,
     type: 'Inglês',
     image: CoffeeCubano,
+    quantity: 1,
+  },
+  {
+    id: 16,
+    title: 'Especial',
+    titleSecondary: 'alcoólico gelado',
+    description: 'Bebida a base de café, chocolate, açúcar, chantilly, cachaça, leite e nutella',
+    price: 12.90,
+    type: 'Holandês',
+    image: CoffeeMacchiato,
     quantity: 1,
   },
   ]

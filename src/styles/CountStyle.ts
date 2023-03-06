@@ -11,6 +11,8 @@ export const ButtonAddRemove = styled.div`
 
 export const Counter = styled.div`
     display: flex;
+    align-items: center;
+    border-radius: 5px;
     gap: 10px;
     background: ${props => props.theme["gray-400"]};
     height: 30px;

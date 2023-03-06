@@ -1,4 +1,4 @@
-import { BoxItems, ButtonAdd, CartIcon, ContainerAllThings, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeText } from "./styles";
+import { BoxItems, ButtonAdd, CartIcon, ContainerAllThings, ContainerItemsProduct, ContainerProducts, DescriptionText, HeaderText, ImageContainer, ItemsProduct, PriceProductsContainer, TitleText, TypeCoffeeText } from "./styles";
 import { priceFormatter } from "../../utils/formatter";
 import { useContext, useState } from "react";
 import { ContextContents} from "../../context/Context";
@@ -54,7 +54,7 @@ export function ProductsForSale(){
 
                     <ImageContainer> <img src={coffee.image}/> </ImageContainer>
                   
-                      <TypeCoffeText>{coffee.title}</TypeCoffeText>
+                      <TypeCoffeeText><p>{coffee.title}</p> {coffee.titleSecondary == null ? '' : <p>{coffee.titleSecondary}</p>} </TypeCoffeeText>
                   
                       <TitleText>{coffee.type}</TitleText> 
   

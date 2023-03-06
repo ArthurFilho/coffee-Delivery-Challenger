@@ -8,6 +8,8 @@ export const ContainerText = styled.div`
 
 export const ContainerValue = styled.div`
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
     margin-left: 15px;
     margin-right: 100px;
     border: 1px solid transparent;
@@ -15,7 +17,8 @@ export const ContainerValue = styled.div`
     linear-gradient(120deg, #DBAC2C, #4B2995) border-box;
     border-radius: 6px 36px;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
+    height: 225px;
     padding: 20px;
     gap: 15px;
     opacity: 0.9;
@@ -23,7 +26,9 @@ export const ContainerValue = styled.div`
 
 export const ContainerAllThings = styled.div`
     display: flex;
+    width: 60%;
     align-items: center;
+    justify-self: center;
 `
 
 export const Containers = styled.div`
@@ -40,6 +45,7 @@ export const C = styled.div`
 
 export const ContainerTextMain = styled.div`
     display: flex;
+    width: 60%;
     flex-direction: column;
 `
 
@@ -56,6 +62,14 @@ export const TextMain = styled.p`
     margin-left: 10px;
     font-weight: bold;
     display: absolute;
-    font-size: 50px;
+    font-size: 40px;
     color: ${props => props.theme["gold-400"]};
+`
+
+export const ContainerSucessPage = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
