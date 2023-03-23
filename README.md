@@ -1,7 +1,6 @@
 <h1> Coffee Delivery </h1>
 
-![Screenshot_5](https://user-images.githubusercontent.com/96798145/204144192-504fe879-48b6-4dea-b747-ec7fdfb64c2a.png)
-
+![coffee-delivery](https://user-images.githubusercontent.com/96798145/227252377-50207a28-975c-4b7b-8995-a622dd94bb8b.png)
 
 <h2> O que foi utilizado 💻 </h2>
 
